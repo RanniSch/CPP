@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 08:08:23 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/08 08:10:25 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/08 08:51:18 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp PhoneBook.cpp Contact.cpp
+SRC_FILES	=	main.cpp Contact.cpp
+#SRC_FILES	=	main.cpp PhoneBook.cpp Contact.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
