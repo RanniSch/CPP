@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:08 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/08 14:45:43 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:18:21 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 Contact::Contact()
 {
+    std::cout << "Constructor called" << std::endl;
+    this->c_exists = false;
     return;
 }
 

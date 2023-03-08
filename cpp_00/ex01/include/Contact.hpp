@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:01:41 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/08 14:37:37 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:08:50 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class Contact {
 
                 void    getdata();
                 void    putdata();
+
+                bool    c_exists;
 };
 
 #endif

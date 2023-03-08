@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/08 14:44:42 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:18:24 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 * std Namespace is libary where also string is defined
 */
 int main (void) 
-{
-    Contact person1;
-    Contact person2;
+{ 
+    Contact person[3];  // create instances, also quasi 8 Telefonbucheinträge werden erstellt
 
-    person1.getdata();
-    person1.putdata();
-    person2.getdata();
-    person2.putdata();
+    for (int i = 0; i < 3; i++)
+    {
+        person[i].getdata();
+    }
+    for (int j = 0; j < 3; j++)
+        person[j].putdata();
 
     return (0);
 }
