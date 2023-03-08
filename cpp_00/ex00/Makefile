@@ -6,35 +6,24 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 08:57:20 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/06 10:02:32 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/08 08:05:26 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-
-#Name = megaphone
-
-### Compiler ###
-
-#C = c++
-#CFLAGS = -Wall -Wextra -Werror -std=c++98
-
-### Sources ###
-
-#SRC = megaphone.cpp
-
 NAME		=	megaphone
 
+### Compiler ###
 CC			=	c++
 
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
 
-# directories
+### Directories (Sources) ###
 SRC_DIR		=	src/
 OBJ_DIR		=	obj/
 INC_DIR		=	include/
 
-# controll codes
+### Control Codes ###
 RESET		=	\033[0m
 GREEN		=	\033[32m
 YELLOW		=	\033[33m
@@ -43,25 +32,25 @@ RED			=	\033[31m
 UP			=	\033[A
 CUT			=	\033[K
 
-#source files
+### Source Files ###
 SRC_FILES	=	megaphone.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
-#paths
+### Paths ###
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
-#all rule
+### All Rule ###
 all: $(NAME)
 
-#compile the executable
+### Compile The Executable ###
 $(NAME): $(OBJ)
 	@echo "$(YELLOW)Compiling [$(NAME)]...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)Finished [$(NAME)]$(RESET)"
 
-#compile objects
+### Compile Objects ###
 $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
 	@echo "$(YELLOW)Compiling [$@]...$(RESET)"
@@ -70,7 +59,7 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
 	@echo "$(GREEN)Finished [$@]$(RESET)"
 	@printf "$(UP)$(CUT)"
 
-#clean rule
+### clean Rule ###
 clean:
 	@if [ -d "$(OBJ_DIR)" ]; then \
 	rm -rf $(OBJ_DIR); \
@@ -78,7 +67,7 @@ clean:
 	echo "No objects to remove from /ex00."; \
 	fi;
 
-#fclean rule
+### fclean Rule ###
 fclean: clean
 	@if [ -f "$(NAME)" ]; then \
 	rm -f $(NAME); \
@@ -86,8 +75,8 @@ fclean: clean
 	echo "No Executable to remove from ex00."; \
 	fi;
 
-#re rule
+### re Rule ###
 re: fclean all
 
-#phony
+### phony ###
 .PHONY: all clean fclean re
