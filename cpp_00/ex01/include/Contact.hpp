@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:01:41 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/09 11:51:38 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:14:35 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Contact {
                 std::string    _firstname;       // initialization in constructor automatically done and set to NULL
                 std::string    _lastname;
                 std::string    _nickname;
-                int     _phonenumber;
+                int            _phonenumber;
                 std::string    _secret;
 
 
