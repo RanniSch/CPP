@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 11:45:19 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:40:19 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main (void)
             break ;
         }
         std::cout << "\33[35mWrite ADD, SEARCH or EXIT: \33[0m";
-        std::cin >> command;
+        std::cin >> command;  // handle no input!!!
         if (command == "EXIT")
         {
             std::cout << "\033[34mGood Bye!\033[0m" << std::endl;

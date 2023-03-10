@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:16 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 12:51:15 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:39:59 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void    PhoneBook::input_data(void)
     int in_num;
     std::string in_sec;
     
+    // Need to handle no input; long strings with spaces and no numbers at phone number, numbers at name!!! 
+    std::cout << "Empty fields are forbidden!" << std::endl;
     std::cout << "Enter first name: ";
     std::cin >> in_first;
     std::cout << "Enter last name: ";
