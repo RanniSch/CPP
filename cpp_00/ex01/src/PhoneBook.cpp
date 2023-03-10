@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:16 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 13:39:59 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:40:31 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,23 @@ void    PhoneBook::input_data(void)
     std::string in_first;
     std::string in_last;
     std::string in_nick;
-    int in_num;
+    std::string in_num;
     std::string in_sec;
     
-    // Need to handle no input; long strings with spaces and no numbers at phone number, numbers at name!!! 
     std::cout << "Empty fields are forbidden!" << std::endl;
-    std::cout << "Enter first name: ";
-    std::cin >> in_first;
+    do {
+        std::cout << "Enter first name: ";
+        std::getline(std::cin, in_first);
+        if (std::cin.eof())
+        {
+            std::cin.clear();
+            break ;
+        }
+    }
+    while (in_first == ""); //#include <cctype>
+    //while (in_first == "" || !stringIsalnum(in_first)); //#include <cctype>
+    
+    // Need to handle no input; long strings with spaces and no numbers at phone number, numbers at name!!!
     std::cout << "Enter last name: ";
     std::cin >> in_last;
     std::cout << "Enter nickname: ";
@@ -73,7 +83,7 @@ void    PhoneBook::_replace_oldest_contact(void)
 }
 
 /*
-* writes contact details into array
+* ADD: writes contact details into array
 * int index will be passed to function adddata in Contact class
 * 
 * instead if calling function from class Contact like this
@@ -81,7 +91,7 @@ void    PhoneBook::_replace_oldest_contact(void)
 * we can call the same function through the specific instance
 * Persons[_num_entries].adddata(index, in_first, in_last, in_nick, in_num, in_sec);
 */
-void    PhoneBook::_new_contact_to_array(std::string in_first, std::string in_last, std::string in_nick, int in_num, std::string in_sec)
+void    PhoneBook::_new_contact_to_array(std::string in_first, std::string in_last, std::string in_nick, std::string in_num, std::string in_sec)
 {
     std::cout << "entires 1:" << this->_num_entries << std::endl;
     if (this->_num_entries < 7)
@@ -99,11 +109,31 @@ void    PhoneBook::_new_contact_to_array(std::string in_first, std::string in_la
     }
 }
 
+void    PhoneBook::search_data(void)
+{   
+    if (PhoneBook::_display_extract())
+    {
+        std::cout << "Write index: ";
+        std::cin >> _user_input;
+        while (!PhoneBook::_display_data(_user_input))
+        {
+            if (std::cin.eof() == true)
+            {
+                std::cout << "" << std::endl;
+                std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
+                exit (0);
+            }
+            std::cout << "Write index: ";
+            std::cin >> _user_input;   
+        }
+    }
+}
+
 /*
 * displays the extract of all entries after SEARCH, when min one exists.
 * Else it returns false to main.
 */
-bool    PhoneBook::display_extract(void)
+bool    PhoneBook::_display_extract(void)
 {
     if (this->_num_entries >= 0)
     {
@@ -118,7 +148,7 @@ bool    PhoneBook::display_extract(void)
         std::cout << "\033[31mNo entries found! Write ADD and add a contact.\033[0m" << std::endl;
         return (false);
     }
-    return (true);
+    return (true); 
 }
 
 /*
@@ -127,18 +157,18 @@ bool    PhoneBook::display_extract(void)
 * displays whole data of one specific entry after index was put in and is valid.
 * if not valid recursive process.
 */
-bool    PhoneBook::display_data(std::string user_input)
+bool    PhoneBook::_display_data(std::string _user_input)
 {
     int user_index = -5;
     int index;
 
-    if (user_input.length() > 1)
+    if (_user_input.length() > 1)
     {
         std::cout << "\033[31mNo entry found! Write an existing index.\033[0m" << std::endl;
         return (false);
     }
     else
-        user_index = int(user_input[0]) - 48;
+        user_index = int(_user_input[0]) - 48;
     
     index = user_index - 1;
     if (index >= 0 && index <= this->_num_entries)

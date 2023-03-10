@@ -6,13 +6,12 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 13:40:19 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:43:38 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-#include <stdlib.h>
 
 /*
 * std Namespace is libary where also string is defined
@@ -31,7 +30,6 @@ int main (void)
     PhoneBook my_pb;
     bool run = true;
     std::string command;
-    std::string user_input;
     
     my_pb.show_instruction();
 
@@ -54,31 +52,11 @@ int main (void)
         else if (command == "ADD")
             my_pb.input_data();
         else if (command == "SEARCH")
-        {
-            if (my_pb.display_extract())
-            {
-                std::cout << "Write index: ";
-                std::cin >> user_input;
-                while (!my_pb.display_data(user_input))
-                {
-                    if (std::cin.eof() == true)
-                    {
-                        std::cout << "" << std::endl;
-                        std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
-                        exit (0);
-                    }
-                    std::cout << "Write index: ";
-                    std::cin >> user_input;   
-                }
-                //user_input.clear();
-            }
-        }
+            my_pb.search_data();
         //command.clear();    
     }
     if (command != "EXIT" && std::cin.eof() == false)
-	{
 		std::cout << "\033[34mYou pressed ^D, exiting now. Good Bye.\033[0m" << command << std::endl;
-	}
     return (0);
     /*while (run && std::getline(std::cin, command))
     {

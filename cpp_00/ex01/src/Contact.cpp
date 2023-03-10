@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:08 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 13:15:48 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:51:57 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Contact::~Contact(void)
     return;
 }
 
-void    Contact::adddata(int index, std::string in_first, std::string in_last, std::string in_nick, int in_num, std::string in_sec)
+void    Contact::adddata(int index, std::string in_first, std::string in_last, std::string in_nick, std::string in_num, std::string in_sec)
 {
     this->c_index = index;
     this->_firstname = in_first;
