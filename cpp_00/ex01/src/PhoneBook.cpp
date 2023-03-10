@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:16 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/09 13:36:05 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:51:15 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ PhoneBook::PhoneBook(void)
 {
     std::cout << "PhoneBook constructor called" << std::endl;
     // maybe initializing each contact of class Contact
-    this->_num_entries = 0;
+    this->_num_entries = -1;
     return;
 }
 
@@ -78,56 +78,72 @@ void    PhoneBook::_replace_oldest_contact(void)
 * Contact::adddata(index, in_first, in_last, in_nick, in_num, in_sec);
 * we can call the same function through the specific instance
 * Persons[_num_entries].adddata(index, in_first, in_last, in_nick, in_num, in_sec);
-*
-* user_index is used for SEARCH and starts at 1!
 */
 void    PhoneBook::_new_contact_to_array(std::string in_first, std::string in_last, std::string in_nick, int in_num, std::string in_sec)
 {
-    int user_index;
-
-    user_index = this->_num_entries + 1;
-    if (this->_num_entries < 8)
+    std::cout << "entires 1:" << this->_num_entries << std::endl;
+    if (this->_num_entries < 7)
     {
-        persons[_num_entries].adddata(user_index, in_first, in_last, in_nick, in_num, in_sec);
         this->_num_entries++;
+        std::cout << "entires 2:" << this->_num_entries << std::endl;
+        persons[_num_entries].adddata(this->_num_entries, in_first, in_last, in_nick, in_num, in_sec);
     }
     else
     {
+        std::cout << "\033[31mYour oldest contact got replaced by the new one!\033[0m" << std::endl;
         PhoneBook::_replace_oldest_contact();
-        persons[_num_entries].adddata(user_index, in_first, in_last, in_nick, in_num, in_sec);
+        //this->_num_entries = 7;
+        persons[_num_entries].adddata(this->_num_entries, in_first, in_last, in_nick, in_num, in_sec);
     }
 }
 
 /*
 * displays the extract of all entries after SEARCH, when min one exists.
+* Else it returns false to main.
 */
 bool    PhoneBook::display_extract(void)
 {
-    if (this->_num_entries > 0)
+    if (this->_num_entries >= 0)
     {
+        std::cout << "|-------------------------------------------|" << std::endl;
+	    std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	    std::cout << "|----------|----------|----------|----------|" << std::endl;
         for (int i = 0; i <= this->_num_entries; i++)
-           persons[_num_entries].putextract();
+           persons[i].putextract();
     }
     else
     {
-        std::cout << "No entries found! Write ADD and add a contact." << std::endl;
+        std::cout << "\033[31mNo entries found! Write ADD and add a contact.\033[0m" << std::endl;
         return (false);
     }
     return (true);
 }
 
 /*
+* checks if string is bigger than one char. If not
+* converts string to int. ATTENTION '- 48' due to ASCII
 * displays whole data of one specific entry after index was put in and is valid.
+* if not valid recursive process.
 */
-bool    PhoneBook::display_data(int user_index)
+bool    PhoneBook::display_data(std::string user_input)
 {
-    int index = user_index - 1;
-    if (user_index >= 0 && user_index <= this->_num_entries)
+    int user_index = -5;
+    int index;
+
+    if (user_input.length() > 1)
+    {
+        std::cout << "\033[31mNo entry found! Write an existing index.\033[0m" << std::endl;
+        return (false);
+    }
+    else
+        user_index = int(user_input[0]) - 48;
+    
+    index = user_index - 1;
+    if (index >= 0 && index <= this->_num_entries)
         persons[index].putdata();
     else
     {
-        std::cout << "No entry found! Write an existing index." << std::endl;
-        std::cout << "Write index: ";
+        std::cout << "\033[31mNo entry found! Write an existing index.\033[0m" << std::endl;
         return (false);
     }
     return (true);
@@ -138,9 +154,8 @@ bool    PhoneBook::display_data(int user_index)
 */
 void	PhoneBook::show_instruction(void)
 {
-	//std::cout << "\033[KEnter your command [ADD, SEARCH, EXIT]:" << std::endl;
-    std::cout << "Welcome to the phonebook!" << std::endl;
-    std::cout << "Enter the command 'ADD' to add a contact," << std::endl;
-    std::cout << "                  'SEARCH' to search for a contact or" << std::endl;
-    std::cout << "                  'EXIT' leave the phonebook!" << std::endl;
+	std::cout << "\033[36mWelcome!" << std::endl;
+    std::cout << "This phonebook can store up to 8 contacts!" << std::endl;
+    std::cout << "Enter the command 'ADD', 'SEARCH' or 'EXIT'\033[0m" << std::endl;
+    std::cout << "to add a contact, search for a contact or leave the phonebook!\033[0m" << std::endl;
 }

@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/08 08:08:23 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/09 13:14:32 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/10 12:48:47 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ GREEN		=	\033[32m
 YELLOW		=	\033[33m
 BLUE		=	\033[34m
 RED			=	\033[31m
+MAGENTA		=	\033[35m
+CYAN		=	\033[36m
 UP			=	\033[A
 CUT			=	\033[K
 

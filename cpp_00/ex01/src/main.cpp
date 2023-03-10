@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/09 13:33:18 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:45:19 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,60 @@ int main (void)
     PhoneBook my_pb;
     bool run = true;
     std::string command;
-    int user_index;
+    std::string user_input;
     
     my_pb.show_instruction();
-    //std::cout << "\033[33m$>\033[0m";
 
-    while (run && std::getline(std::cin, command))
+    while (run)
     {
         if (std::cin.eof() == true)
         {
-            std::cout << "You pressed ^D. Exiting phonebook!" << std::endl;
-            exit (0);
+            std::cout << "" << std::endl;
+            std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
+            break ;
         }
-        else if (command.compare("ADD") == 0)
+        std::cout << "\33[35mWrite ADD, SEARCH or EXIT: \33[0m";
+        std::cin >> command;
+        if (command == "EXIT")
+        {
+            std::cout << "\033[34mGood Bye!\033[0m" << std::endl;
+            //PhoneBook.~PhoneBook(void);
+			break ;
+        }
+        else if (command == "ADD")
+            my_pb.input_data();
+        else if (command == "SEARCH")
+        {
+            if (my_pb.display_extract())
+            {
+                std::cout << "Write index: ";
+                std::cin >> user_input;
+                while (!my_pb.display_data(user_input))
+                {
+                    if (std::cin.eof() == true)
+                    {
+                        std::cout << "" << std::endl;
+                        std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
+                        exit (0);
+                    }
+                    std::cout << "Write index: ";
+                    std::cin >> user_input;   
+                }
+                //user_input.clear();
+            }
+        }
+        //command.clear();    
+    }
+    if (command != "EXIT" && std::cin.eof() == false)
+	{
+		std::cout << "\033[34mYou pressed ^D, exiting now. Good Bye.\033[0m" << command << std::endl;
+	}
+    return (0);
+    /*while (run && std::getline(std::cin, command))
+    {
+
+        //std::cout << "Write ADD, SEARCH or EXIT: ";
+        if (command.compare("ADD") == 0)
             my_pb.input_data();
         else if (command.compare("SEARCH") == 0)
         {
@@ -51,9 +92,11 @@ int main (void)
             {
                 std::cout << "Write index: ";
                 std::cin >> user_index;
-                while (!my_pb.display_data(user_index))
-                    std::cin >> user_index;
-            }   
+                my_pb.display_data(user_index);
+                std::cin >> user_index;
+                //while (!my_pb.display_data(user_index))
+                //    std::cin >> user_index;
+            }
         }
         else if (command.compare("EXIT") == 0)
         {
@@ -63,16 +106,13 @@ int main (void)
             //PhoneBook.~PhoneBook(void);
 			continue ;
         }
-        else
-            std::cout << "Wrong input!" << std::endl;
+        else if (std::cin.eof() == true)
+        {
+            std::cout << "You pressed ^D. Exiting phonebook!" << std::endl;
+            exit (0);
+        }
         command.clear();
-		my_pb.show_instruction();
+		//my_pb.show_instruction();
 		//std::cout << "\033[33m$>\033[0m";    
-    }
-    /*if (run)
-	{
-		std::cout << "You pressed ^D, exiting now." << command << std::endl
-		<< "\033[34mHope i served you well. Good Bye.\033[0m" << std::endl;
-	}*/
-    return (0);
+    }*/
 }

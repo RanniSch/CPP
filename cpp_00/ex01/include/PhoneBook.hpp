@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 10:13:29 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/09 13:34:05 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:29:36 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class PhoneBook {
 
                 void        input_data(void);
                 bool        display_extract(void);
-                bool        display_data(int user_index);
+                bool        display_data(std::string user_input);
                 void	    show_instruction(void);
                         
 };

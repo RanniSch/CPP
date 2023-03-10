@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:08 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/09 13:23:06 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:15:48 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Contact::~Contact(void)
     return;
 }
 
-void    Contact::adddata(int user_index, std::string in_first, std::string in_last, std::string in_nick, int in_num, std::string in_sec)
+void    Contact::adddata(int index, std::string in_first, std::string in_last, std::string in_nick, int in_num, std::string in_sec)
 {
-    this->c_index = user_index;
+    this->c_index = index;
     this->_firstname = in_first;
     this->_lastname = in_last;
     this->_nickname = in_nick;
@@ -34,16 +34,37 @@ void    Contact::adddata(int user_index, std::string in_first, std::string in_la
     this->_secret = in_sec;
 }
 
+/*
+* #include <iomanip>
+* 'undefined' setw (int n);
+* Sets the field width to be used on output operations.
+* user_index is used to search from 1 till 8!
+*/
 void    Contact::putextract(void)
 {
-    std::cout << this->c_index << " ";
-    std::cout << this->_firstname << " ";
-    std::cout << this->_lastname << " ";
-    std::cout << this->_nickname << " " << std::endl;
+    int user_index = this->c_index + 1;
+
+    std::cout << "|";
+    std::cout << std::setw(10) << user_index << "|";
+    if (this->_firstname.length() > 10)
+        std::cout << std::setw(10) << this->_firstname.substr(0, 9) + "." << "|";
+    else
+        std::cout << std::setw(10) << this->_firstname << "|";
+    if (this->_lastname.length() > 10)
+        std::cout << std::setw(10) << this->_lastname.substr(0, 9) + "." << "|";
+    else
+        std::cout << std::setw(10) << this->_lastname << "|";
+    if (this->_nickname.length() > 10)
+        std::cout << std::setw(10) << this->_nickname.substr(0, 9) + "." << "|" << std::endl;
+    else
+        std::cout << std::setw(10) << this->_nickname << "|" << std::endl;
+    std::cout << "|-------------------------------------------|" << std::endl;
 }
 
 void    Contact::putdata(void)
 {
+    std::cout << "" << std::endl;
+    std::cout << "\033[33mCONTACT\033[0m" << std::endl;
     std::cout << "first name: " << this->_firstname << std::endl;
     std::cout << "last name: " << this->_lastname << std::endl;
     std::cout << "nickname: " << this->_nickname << std::endl;
