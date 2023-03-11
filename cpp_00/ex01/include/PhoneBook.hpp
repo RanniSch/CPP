@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 10:13:29 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 18:14:58 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:50:27 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class PhoneBook {
                 PhoneBook (void);
                 ~PhoneBook (void);
 
-                void        input_data(void);
+                int         input_data(void);
                 void        search_data(void);
                 void	    show_instruction(void);
                         

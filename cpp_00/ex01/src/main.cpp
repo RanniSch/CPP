@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 17:43:38 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:49:39 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,10 @@ int main (void)
 			break ;
         }
         else if (command == "ADD")
-            my_pb.input_data();
+        {
+            if (my_pb.input_data() == -1)
+                break ;
+        }
         else if (command == "SEARCH")
             my_pb.search_data();
         //command.clear();    

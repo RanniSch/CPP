@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:16 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 18:40:31 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:55:32 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,31 @@ PhoneBook::~PhoneBook(void)
 /*
 * writing data of one phonebook contact.
 */
-void    PhoneBook::input_data(void)
+int    PhoneBook::input_data(void)
 {
     std::string in_first;
     std::string in_last;
     std::string in_nick;
     std::string in_num;
     std::string in_sec;
+    bool run = true;
     
     std::cout << "Empty fields are forbidden!" << std::endl;
-    do {
+    while (run)
+    {
+        std::getline(std::cin, in_first);
+        if (in_first == "" && std::cin.eof() == false)
+            std::cout << "Enter first name: ";
+        else
+            run = false;
+        if (std::cin.eof() == true)
+        {
+            std::cout << "" << std::endl;
+            std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
+            return (-1);
+        }
+    }
+    /*do {
         std::cout << "Enter first name: ";
         std::getline(std::cin, in_first);
         if (std::cin.eof())
@@ -54,7 +69,8 @@ void    PhoneBook::input_data(void)
             break ;
         }
     }
-    while (in_first == ""); //#include <cctype>
+    while (in_first == ""); //#include <cctype>*/
+    //while (in_first.empty());
     //while (in_first == "" || !stringIsalnum(in_first)); //#include <cctype>
     
     // Need to handle no input; long strings with spaces and no numbers at phone number, numbers at name!!!
@@ -67,6 +83,7 @@ void    PhoneBook::input_data(void)
     std::cout << "Enter secret: ";
     std::cin >> in_sec;
     PhoneBook::_new_contact_to_array(in_first, in_last, in_nick, in_num, in_sec);
+    return (0);
 }
 
 /*
