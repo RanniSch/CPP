@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/12 13:06:59 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:29:48 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,11 @@ int main (void)
             break ;
         }
         std::getline(std::cin, command);
-        if (command == "" && std::cin.eof() == false)
+        if ((command == "" && std::cin.eof() == false) || (command != "EXIT" && command != "ADD" && command != "SEARCH"))
             std::cout << "\33[35mWrite ADD, SEARCH or EXIT: \33[0m";
-        //std::cin >> command;  // handle no input!!!
         if (command == "EXIT")
         {
             std::cout << "\033[34mGood Bye!\033[0m" << std::endl;
-            //PhoneBook.~PhoneBook(void);
 			break ;
         }
         else if (command == "ADD")

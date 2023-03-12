@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 09:01:41 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 18:15:27 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:18:44 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Contact {
 
 
         public:
-                int     c_index;        // countet from 1 till 8 for SEARCH
+                int     c_index;        // countet from 0 till 7, so for SEARCH user input + 1
                 Contact (void);
                 ~Contact (void);    // destructor
 

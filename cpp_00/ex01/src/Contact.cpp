@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:08 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/10 17:51:57 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:20:59 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ Contact::~Contact(void)
     return;
 }
 
+/*
+* Saves the typed in input from class phonebook into the private variables from class contact.
+*/
 void    Contact::adddata(int index, std::string in_first, std::string in_last, std::string in_nick, std::string in_num, std::string in_sec)
 {
     this->c_index = index;
@@ -38,6 +41,7 @@ void    Contact::adddata(int index, std::string in_first, std::string in_last, s
 * #include <iomanip>
 * 'undefined' setw (int n);
 * Sets the field width to be used on output operations.
+* Writes user input strings into the fields.
 * user_index is used to search from 1 till 8!
 */
 void    Contact::putextract(void)
@@ -61,6 +65,9 @@ void    Contact::putextract(void)
     std::cout << "|-------------------------------------------|" << std::endl;
 }
 
+/*
+* Writes one contact into the terminal.
+*/
 void    Contact::putdata(void)
 {
     std::cout << "" << std::endl;

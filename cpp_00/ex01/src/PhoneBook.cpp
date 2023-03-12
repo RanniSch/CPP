@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 08:11:16 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/12 13:05:04 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/12 13:16:14 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 */
 PhoneBook::PhoneBook(void)
 {
-    std::cout << "PhoneBook constructor called" << std::endl;
-    // maybe initializing each contact of class Contact
+    //std::cout << "PhoneBook constructor called" << std::endl;
     this->_num_entries = -1;
     return;
 }
@@ -28,8 +27,7 @@ PhoneBook::PhoneBook(void)
 */
 PhoneBook::~PhoneBook(void)
 {
-    std::cout << "PhoneBook destructor called" << std::endl;
-    //Contact::~Contact();
+    //std::cout << "PhoneBook destructor called" << std::endl;
     return;
 }
 
@@ -44,23 +42,8 @@ int    PhoneBook::input_data(void)
     std::string in_nick;
     std::string in_num;
     std::string in_sec;
-    //bool run = true;
     
     std::cout << "\033[33mEmpty fields are forbidden!\033[0m" << std::endl;
-    /*while (run)
-    {
-        std::getline(std::cin, in_first);
-        if (in_first == "" && std::cin.eof() == false)
-            std::cout << "Enter first name: ";
-        else
-            run = false;
-        if (std::cin.eof() == true)
-        {
-            std::cout << "" << std::endl;
-            std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
-            return (-1);
-        }
-    }*/
     while (in_first == "" && std::cin.eof() == false)
     {
         std::cout << "Enter first name: ";
@@ -71,8 +54,7 @@ int    PhoneBook::input_data(void)
             std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
             return (-1);
         }
-    }
-    
+    } 
     while (in_last == "" && std::cin.eof() == false)
     {
         std::cout << "Enter last name: ";
@@ -164,7 +146,6 @@ void    PhoneBook::_new_contact_to_array(std::string in_first, std::string in_la
     {
         std::cout << "\033[31mYour oldest contact got replaced by the new one!\033[0m" << std::endl;
         PhoneBook::_replace_oldest_contact();
-        //this->_num_entries = 7;
         persons[_num_entries].adddata(this->_num_entries, in_first, in_last, in_nick, in_num, in_sec);
     }
 }
@@ -172,14 +153,11 @@ void    PhoneBook::_new_contact_to_array(std::string in_first, std::string in_la
 /*
 * if there are saved contacts it displays the extract.
 * Then asks for input the index and checks for a valid input. If input invalid, asks to put valid input.
-* 
 */
 int    PhoneBook::search_data(void)
 {   
     if (PhoneBook::_display_extract())
     {
-        //std::cout << "Write index: ";
-        //std::cin >> _user_input;
         std::cout << "Write index: ";
         std::getline(std::cin, _user_input);
         if (std::cin.eof() == true)
@@ -196,8 +174,6 @@ int    PhoneBook::search_data(void)
                 std::cout << "\033[34mYou pressed ^D. Exiting phonebook!\033[0m" << std::endl;
                 exit (0);
             }
-            //std::cout << "Write index: ";
-            //std::cin >> _user_input;
             std::cout << "Write index: ";
             std::getline(std::cin, _user_input);
             if (std::cin.eof() == true)
