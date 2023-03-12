@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 13:48:59 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/12 20:48:16 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/12 21:26:26 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp Zombie.cpp newZombie.cpp
+SRC_FILES	=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 

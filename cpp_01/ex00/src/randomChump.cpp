@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 19:16:13 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/12 21:37:26 by rschlott         ###   ########.fr       */
+/*   Created: 2023/03/12 21:09:36 by rschlott          #+#    #+#             */
+/*   Updated: 2023/03/12 21:49:04 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+/*
+* STACK
+* Wenn Prozess beendet, löscht der destructor automatisch die Klassen, die erstellt wurden.
+* Constructor wird automatisch bei Klassenerstellung aufgerufen.
+* Zombie is the class (like int or char) and zombie is the object variable with the input parameter
+* "name" for the constructor.
+*/
+void    randomChump(std::string name)
 {
-    this->_name = name;
-    std::cout << this->_name << ": ";
-    return;
-}
-
-Zombie::~Zombie(void)
-{
-    std::cout << this->_name << " just died" << std::endl;
-    return;
-}
-
-void    Zombie::announce(void)
-{
-    std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
+    Zombie zombie(name);
+    zombie.announce();
 }
