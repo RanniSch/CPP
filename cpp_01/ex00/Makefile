@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/08 08:08:23 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/12 13:47:19 by rschlott         ###   ########.fr        #
+#    Created: 2023/03/12 13:48:59 by rschlott          #+#    #+#              #
+#    Updated: 2023/03/12 20:48:16 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	phonebook
+NAME		=	zombie
 
 ### Compiler ###
 CC			=	c++
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp PhoneBook.cpp Contact.cpp
+SRC_FILES	=	main.cpp Zombie.cpp newZombie.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
