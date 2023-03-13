@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/12 21:52:44 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/13 07:49:23 by rschlott         ###   ########.fr        #
+#    Created: 2023/03/13 09:20:54 by rschlott          #+#    #+#              #
+#    Updated: 2023/03/13 09:21:08 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp Zombie.cpp zombieHorde.cpp
+SRC_FILES	=	main.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
