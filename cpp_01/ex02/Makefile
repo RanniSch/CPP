@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 09:20:54 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/13 09:21:08 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/13 18:50:20 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	zombieHorde
+NAME		=	brain
 
 ### Compiler ###
 CC			=	c++
