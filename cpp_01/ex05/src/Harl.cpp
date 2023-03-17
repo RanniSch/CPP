@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 19:47:11 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/17 07:31:12 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/17 21:57:54 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Harl::Harl(void)
 
 Harl::~Harl(void)
 {
-    std::cout << "Harl destroyed" << std::endl;
+    //std::cout << "Harl destroyed" << std::endl;
     return;
 }
 
@@ -44,11 +44,38 @@ void    Harl::_error(void)
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
-void complain(std::string level)
+void Harl::complain(std::string level)
 {
-    char *ptr;
+    std::string input[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    ptr = level;
-    while (ptr != '\0')
-        ?
+    int i;
+
+    for (i = 0; i < 4; i++)
+    {
+        if (level == input[i])
+            break;
+    }
+    i++;
+    switch(i)
+    {
+        case 1 :
+            _function = &Harl::_debug;
+            (this->*_function)();
+            break;
+        case 2 :
+            _function = &Harl::_info;
+            (this->*_function)();
+            break;
+        case 3 :
+            _function = &Harl::_warning;
+            (this->*_function)();
+            break;
+        case 4 :
+            _function = &Harl::_error;
+            (this->*_function)();
+            break;
+        case 5 :
+            std::cout << "This input does not exist! DEBUG, INFO, WARNING, ERROR allowed!" << std::endl;
+            break;
+    }
 }

@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 19:45:26 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/16 19:46:37 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/17 17:25:11 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	files
+NAME		=	harl
 
 ### Compiler ###
 CC			=	c++
