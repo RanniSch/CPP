@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:08:58 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/13 09:07:05 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/17 07:15:00 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ZOMBIE_HPP
 
 # include <iostream> // needed for std
-# include <string>
+# include <string> // only needed when not writing std::
 
 class Zombie {
         private:
