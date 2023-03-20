@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 22:01:30 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/20 20:05:01 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/20 20:08:57 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	fixed
+NAME		=	useful
 
 ### Compiler ###
 CC			=	c++
