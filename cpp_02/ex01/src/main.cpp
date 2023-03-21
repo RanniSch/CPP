@@ -6,11 +6,13 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:04 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/21 07:31:19 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/21 07:36:04 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+#include <iostream>
 
 int main(void)
 {
