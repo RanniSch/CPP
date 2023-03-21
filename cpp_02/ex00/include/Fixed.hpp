@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:39 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/20 19:50:50 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/21 06:51:05 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Fixed {
                 ~Fixed (void); // Destructor
 
                 Fixed(const Fixed &copy); // Copy constructor is defined by using as argument a reference to an object of the same class.
-		        Fixed& operator=(const Fixed &src); // copy assignment operator 'overload' (i.e. each of those member functions here constructor, destructor and so on are overloads...). variable src refers to right-hand-side -> what is being passed in as an argument is the right-hand-side of the '=' statement. (fpn2 in this case ll. 23 in main.cpp).
+		Fixed& operator=(const Fixed &src); // copy assignment operator 'overload' (i.e. each of those member functions here constructor, destructor and so on are overloads...). variable src refers to right-hand-side -> what is being passed in as an argument is the right-hand-side of the '=' statement. (fpn2 in this case ll. 23 in main.cpp).
 
                 
                 int getRawBits(void) const;
