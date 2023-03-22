@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:19:53 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/22 08:48:30 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:30:41 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ ClapTrap::ClapTrap(void): _name("default"), _hitPoints(10), _energyPoints(10), _
     return;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name): _name(name)
 {
     std::cout << "name set" << std::endl;
-    this->_name = name;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -39,46 +38,58 @@ ClapTrap::~ClapTrap(void)
 ClapTrap &ClapTrap::operator=(const ClapTrap &src)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    ?
+    this->_name = src._name;
+    this->_hitPoints = src._hitPoints;
+    this->_energyPoints = src._energyPoints;
+    this->_attackDamage = src._attackDamage;
+
+    return (*this);
 }
 
 
-void attack(const std::string &target)
+void ClapTrap::attack(const std::string &target)
 {
-    --this->_energyPoints;
-    if (this->_energyPoints >= 0)
-        std::cout << "ClapTrap " << this->_name << " attacks" << target;
+    if (this->_energyPoints > 0 && this->_hitPoints > 0)
+    {
+        std::cout << "ClapTrap " << this->_name << " attacks " << target;
+        std::cout << " causing " << this->_attackDamage << " points of damage!" << std::endl;
+        this->_energyPoints--;
+    }  
+    else if (this->_energyPoints == 0)
+        std::cout << "ClapTrap " << this->_name << " ran out of energy! " << target << " is lucky!" << std::endl;
+    else
+        std::cout << "ClapTrap " << this->_name << " ran out of hit points! " << target << " is lucky!" << std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    if (this->_hitPoints > amount)
+        this->_hitPoints = this->_hitPoints - amount;
+    else if (this->_hitPoints > 0)
+        this->_hitPoints = 0;
     else
     {
-        std::cout << "ClapTrap " << this->_name << " ran out of energy!" << std::endl;
-        exit (0);
+        std::cout << "ClapTrap " << this->_name << " is dead!" << std::endl;
+        return ;
     }
+    std::cout << "ClapTrap " << this->_name << " was attacked and lost " << amount;
+    std::cout << " hit points! There are " << this->_hitPoints << " hit points left!" << std::endl;
 }
 
-void takeDamage(unsigned int amount)
+void ClapTrap::beRepaired(unsigned int amount)
 {
-    this->_hitPoints = this->_hitPoints - amount;
-    this->_attackDamage = amount;
-    std::cout << "causing" << this->_attackDamage << "points of damage!" << std::endl;
-    if (this->_hitPoints <= 0)
+    if (this->_energyPoints > 0 && this->_hitPoints > 0 && this->_hitPoints + amount <= 10)
     {
-        std::cout << "Target has no Hit points left!" << std::endl;
-        exit (0);
-    }
-}
-
-void beRepaired(unsigned int amount)
-{
-    this->_hitPoints = this->_hitPoints + amount;
-    --this->_energyPoints;
-    if (this->_energyPoints >= 0)
-    {
+        this->_hitPoints = this->_hitPoints + amount;
+        this->_energyPoints--;
         std::cout << "ClapTrap " << this->_name << " repairs itself by " << amount << " and has now ";
         std::cout << this->_hitPoints << " Hit points and " << this->_energyPoints << " Energy points!" << std::endl;
+
     }
-    else
-    {
+    else if (this->_energyPoints == 0)
         std::cout << "ClapTrap " << this->_name << " ran out of energy!" << std::endl;
-        exit (0);
-    }
+    else if (this->_hitPoints == 0)
+        std::cout << "ClapTrap " << this->_name << " ran out of hit points!" << std::endl;
+    else
+        std::cout << "ClapTrap " << this->_name << " cannot have more than 10 hit points!" << std::endl;
 }

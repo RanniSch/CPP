@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/21 08:18:53 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/22 17:14:19 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	fixedtalk
+NAME		=	claptrap
 
 ### Compiler ###
 CC			=	c++
