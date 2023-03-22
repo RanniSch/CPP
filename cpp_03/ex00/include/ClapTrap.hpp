@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:20:26 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/22 20:28:14 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:52:12 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# include <stdlib.h>
 
 class ClapTrap {
         public:
