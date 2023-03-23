@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/22 20:55:45 by rschlott         ###   ########.fr        #
+#    Updated: 2023/03/23 08:41:53 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp ClapTrap.cpp
+SRC_FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:20:26 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/22 20:56:42 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/23 09:35:48 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,22 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
+# include <iomanip>
 
+/*
+* public class members are available to everyone. The data members and member 
+* functions declared public can be accessed by other classes too. 
+* The public members of a class can be accessed from anywhere in the program
+* using the direct member access operator (.) with the object of that class.
+*
+* Protected access modifier is similar to that of private access modifiers,
+* the difference is that the class member declared as Protected are inaccessible 
+* outside the class but they can be accessed by any subclass(derived class) of that class.
+*
+* Deleting a ScavTrap class object using a pointer of ClapTrap class type that
+* has a non-virtual destructor results in undefined behavior. To correct this 
+* situation, the clapTrap class should be defined with a virtual destructor.
+*/
 class ClapTrap {
         public:
                 // Constructors
@@ -23,7 +38,7 @@ class ClapTrap {
                 ClapTrap(const ClapTrap &copy);
 
                 // Destructor
-                ~ClapTrap (void);
+                virtual ~ClapTrap (void);
 
                 // Overloaded operator
                 ClapTrap& operator=(const ClapTrap &src);
@@ -32,13 +47,17 @@ class ClapTrap {
                 void attack(const std::string &target);
                 void takeDamage(unsigned int amount);
                 void beRepaired(unsigned int amount);
+
+                void	status(void) const;
         
-        private:
+        protected:
                 std::string     _name;
                 unsigned int    _hitPoints;
                 unsigned int    _energyPoints;
                 unsigned int    _attackDamage;
 
 };
+
+void	print_table(void);
 
 #endif
