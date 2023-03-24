@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:20:26 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/22 20:52:12 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:06:58 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap {
                 ~ClapTrap (void);
 
                 // Overloaded operator
-                ClapTrap& operator=(const ClapTrap &src);
+                ClapTrap &operator=(const ClapTrap &src);
 
                 // member functions
                 void attack(const std::string &target);

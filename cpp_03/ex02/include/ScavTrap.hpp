@@ -6,14 +6,14 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 07:49:35 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 08:01:58 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:17:46 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-#include "ClapTrap.hpp"
+# include "ClapTrap.hpp"
 
 class ScavTrap: public ClapTrap {
             public:

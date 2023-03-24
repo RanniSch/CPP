@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:19:53 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/23 09:53:07 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:31:16 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 
 ClapTrap::~ClapTrap(void)
 {
-    std::cout << "ClapTrap destructor for " << _name << " called!" << std::endl;
+    std::cout << "ClapTrap destructor for " << this->_name << " called!" << std::endl;
     return;
 }
 

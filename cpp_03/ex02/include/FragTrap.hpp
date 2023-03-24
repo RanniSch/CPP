@@ -6,15 +6,15 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:10:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 08:46:24 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/24 17:17:42 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+# include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
 class FragTrap: public ClapTrap {
         public:
