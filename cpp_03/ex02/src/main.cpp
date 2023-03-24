@@ -6,12 +6,13 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:19:27 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/23 10:08:12 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:55:46 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
@@ -61,35 +62,38 @@ int main(void)
 
 	// TEST 2
 
-	std::cout << "\n\n### TESTING SCAVTRAP ###\n" << std::endl;
+	std::cout << "\n\n### TESTING FRAGTRAP ###\n" << std::endl;
 	
 	std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	ClapTrap a ("Lilly");
 	ScavTrap c;
-	ScavTrap d("Savage");
+	FragTrap d("Savage");
+	FragTrap e;
 	
 	print_table();
 	a.status();
 	c.status();
 	d.status();
+	e.status();
 
 	std::cout << "\033[34mTesting\033[0m" << std::endl;
-	c.attack("CloneTrap");
-	c.takeDamage(21);
-	c.beRepaired(22);
-	a.takeDamage(9);
-	a.beRepaired(30);
-	c.beRepaired(22);
-	c.guardGate();
-	d.attack("Savage-clone");
-	d.takeDamage(101);
-	d.takeDamage(15);
-	d.attack("ScavTrap-clone");
+	e.highFivesGuys();
+	e.attack("some random dude");
+	e.takeDamage(101);
+	e.takeDamage(1);
+	e.attack("some random dude");
+	d.highFivesGuys();
+	d.attack("Eval enemy");
+	d.takeDamage(52);
+	e.beRepaired(15);
+	d.attack("The devil");
+	d.highFivesGuys();
 
 	print_table();
 	a.status();
 	c.status();
 	d.status();
+	e.status();
 
 	std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
 

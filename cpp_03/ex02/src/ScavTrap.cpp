@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 07:48:59 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/23 10:08:14 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/24 08:55:48 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
 // Destructor
 ScavTrap::~ScavTrap(void)
 {
-    std::cout << "ScavTrap destructor for " << _name << " called!" << std::endl;
+    std::cout << "ScavTrap destructor for " << this->_name << " called!" << std::endl;
     return;
 }
 
