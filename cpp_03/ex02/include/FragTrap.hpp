@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:10:03 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 17:17:42 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 07:56:23 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
 
+/*
+* DERIVED CLASS
+*/
 class FragTrap: public ClapTrap {
         public:
         // Constructors

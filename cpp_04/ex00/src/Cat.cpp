@@ -6,12 +6,11 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:47:23 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 18:29:12 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 08:41:55 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
-#include "Animal.hpp"
 
 // Constructors
 Cat::Cat(void): Animal()
@@ -36,8 +35,8 @@ Cat::~Cat(void)
 Cat &Cat::operator=(const Cat &src)
 {
     std::cout << "Cat assignment operator called" << std::endl;
-    //if (this == &src)
-    //    return (*this);
+    if (this == &src)
+        return (*this);
     this->_type = src._type;
     return (*this);
 }

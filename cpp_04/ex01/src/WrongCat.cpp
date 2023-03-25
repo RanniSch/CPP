@@ -6,12 +6,11 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 18:43:07 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 19:12:20 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 15:51:06 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
-#include "WrongAnimal.hpp"
 
 // Constructors
 WrongCat::WrongCat(void): WrongAnimal()
@@ -36,12 +35,13 @@ WrongCat::~WrongCat(void)
 WrongCat &WrongCat::operator=(const WrongCat &src)
 {
     std::cout << "WrongCat assignment operator called" << std::endl;
-    //if (this == &src)
-    //    return (*this);
+    if (this == &src)
+        return (*this);
     this->_type = src._type;
     return (*this);
 }
 
+// Member function
 void    WrongCat::makeSound(void)const
 {
     std::cout << this->getType() << ": WUFF" << std::endl;

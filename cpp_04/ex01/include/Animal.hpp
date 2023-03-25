@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:16:14 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 19:10:21 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 15:22:09 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 
+/*
+* BASE CLASS
+*/
 class Animal {
         public:
                 // Constructors

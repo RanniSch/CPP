@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 18:37:43 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 19:10:33 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 07:58:43 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <iostream>
 
+/*
+* BASE CLASS
+*/
 class WrongAnimal {
         public:
                 // Constructors

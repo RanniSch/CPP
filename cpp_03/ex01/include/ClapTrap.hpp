@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 08:20:26 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 18:06:31 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 07:56:48 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <iomanip>
 
 /*
+* BASE CLASS 
+*
 * public class members are available to everyone. The data members and member 
 * functions declared public can be accessed by other classes too. 
 * The public members of a class can be accessed from anywhere in the program

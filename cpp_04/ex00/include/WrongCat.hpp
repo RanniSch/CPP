@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 18:39:19 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 18:40:07 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 09:59:37 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "WrongAnimal.hpp"
 
+/*
+* DERIVED CLASS with its BASE CLASS WrongAnimal. WrongCat class can overwrite animal noise of WrongAnimal class.
+*/
 class WrongCat: public WrongAnimal {
         public:
                 // Constructors

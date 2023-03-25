@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:27:05 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 19:01:32 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 08:41:48 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ Animal::~Animal(void)
 Animal &Animal::operator=(const Animal &src)
 {
     std::cout << "Animal assignment operator called" << std::endl;
-    //if (this == &src)
-    //    return (*this);
+    if (this == &src)
+        return (*this);
     this->_type = src._type;
     return (*this);
 }

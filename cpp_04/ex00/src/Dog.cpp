@@ -6,12 +6,11 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:42:37 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/24 18:30:02 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 08:42:01 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
-#include "Animal.hpp"
 
 // Constructors
 Dog::Dog(void): Animal()
@@ -36,8 +35,8 @@ Dog::~Dog(void)
 Dog &Dog::operator=(const Dog &src)
 {
     std::cout << "Dog assignment operator called" << std::endl;
-    //if (this == &src)
-    //    return (*this);
+    if (this == &src)
+        return (*this);
     this->_type = src._type;
     return (*this);
 }
