@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 17:53:47 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/25 16:08:49 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/25 16:22:21 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,40 +17,44 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-#include <iostream> // cout
+#include <iostream> // std
 #include <stdlib.h> // exit
 #include <stdio.h> // perror
 
 int main(void)
 {
     // FIRST TEST
-    /*Dog *bello = new Dog();
-    Dog *j = new Dog();
-    Cat *i = new Cat();
+    const Animal *j = new Dog();
+    const Animal *i = new Cat();
+	Dog *bello = new Dog();
+	Cat *lucy = new Cat();
 
     std::cout << j->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
     j->makeSound();
-    bello->makeSound();
+	i->makeSound(); //will output the cat sound!
 
+	delete(j);
+	delete(i);
+
+	std::cout << "---------------------------------------" << std::endl;
+    bello->makeSound();
 	bello->setIdeas(0, "I have to sniff it");
-	i->setIdeas(1, "I have to pee on it");
-	j->setIdeas(2, "I have to sniff it again");
+	lucy->setIdeas(1, "I have to pee on it");
+	lucy->setIdeas(2, "I have to sniff it again");
 	bello->setIdeas(101, "some shit");
     
 	bello->getIdeas(0);
-	i->getIdeas(1);
-	j->getIdeas(2);
+	lucy->getIdeas(1);
+	lucy->getIdeas(2);
 	bello->getIdeas(101);
 
     delete bello;
-    delete j;
-    delete i;*/
+    delete lucy;
 
 	
 	// SECOND TEST
-	std::cout << "\033[34mConstructing\033[0m" << std::endl;
+	/*std::cout << "\033[34mConstructing\033[0m" << std::endl;
 	const Animal	*meta[10];
 	for (int i = 0; i < 10; i++)
 	{
@@ -147,7 +151,7 @@ int main(void)
 	std::cout << std::endl;
 
 	std::cout << "\033[34mDeconstructing b\033[0m" << std::endl;
-	delete(b);
+	delete(b);*/
 
     return (0);
 }
