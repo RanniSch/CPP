@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:10:12 by rschlott          #+#    #+#             */
-/*   Updated: 2023/03/13 21:16:11 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:46:58 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void HumanB::attack(void)
 {
     if (this->_is_armed)
     {
-        std::cout << this->_nameB << " attacks with their";
+        std::cout << this->_nameB << " attacks with their ";
         std::cout << this->_weapon->getType() << std::endl;
     }
     else
