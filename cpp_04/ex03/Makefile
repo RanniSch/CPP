@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/03/30 15:13:17 by rschlott         ###   ########.fr        #
+#    Updated: 2023/04/01 19:58:11 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	not-instantiable
+NAME		=	a.out
 
 ### Compiler ###
 CC			=	c++
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp #.cpp
+SRC_FILES	=	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
