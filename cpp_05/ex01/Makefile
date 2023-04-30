@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/04/30 09:58:19 by rschlott         ###   ########.fr        #
+#    Updated: 2023/04/30 10:22:35 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp Bureaucrat.cpp
+SRC_FILES	=	main.cpp Bureaucrat.cpp Form.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 

@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/29 15:22:38 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/30 10:41:24 by rschlott         ###   ########.fr       */
+/*   Created: 2023/04/30 10:00:01 by rschlott          #+#    #+#             */
+/*   Updated: 2023/04/30 12:13:00 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-# define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
-class Bureaucrat {
+class Bureaucrat;
+
+class Form {
         public:
                 // Constructors
-                Bureaucrat();
-                Bureaucrat(std::string name, unsigned int grade); // const: Wert wird zugewiesen und kann nicht geändert werden; bleibt const.
-                Bureaucrat(const Bureaucrat &copy);
+                Form(void);
+                Form(std::string name, int signit, int executeit);
+                Form (const Form &copy);
 
                 // Destructor
-                ~Bureaucrat (void);
+                ~Form (void);
 
                 // Overloaded Operator
-                Bureaucrat &operator=(const Bureaucrat &src);
-                
+                Form &operator=(const Form &src);
+
                 // Member functions
-                void increment();
-                void decrement();
+                void beSigned(const Bureaucrat &copy);
                 
                 // Getter
-                std::string     getName() const;
-                unsigned int    getGrade() const;
+                std::string     getName(void) const;
+                bool            getSigned(void) const;
+                unsigned int    signIt(void) const;
+                unsigned int    executeIt(void) const;
 
                 class GradeTooHighException: public std::exception {
                     public:
@@ -44,12 +48,16 @@ class Bureaucrat {
                     public:
                         virtual const char *what() const throw();
                 };
-                
+
         private:
                 const std::string   _name;
-                unsigned int        _grade;
+                bool                _signed;
+                const unsigned int  _signit;
+                const unsigned int  _executeit;
+                
+                
 };
 
-std::ostream &operator<< (std::ostream &os, const Bureaucrat &copy);
+std::ostream &operator<< (std::ostream &os, const Form &copy);
 
 #endif

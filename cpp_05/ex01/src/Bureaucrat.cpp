@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:27:27 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/30 09:27:35 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:15:35 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &src)
 {
     std::cout << "Bureaucrat: overloaded operator called." << std::endl;
     this->_grade = src.getGrade();
-    return *this;
+    return (*this);
 }
 
 std::string	Bureaucrat::getName(void) const
@@ -107,6 +107,22 @@ void	Bureaucrat::decrement()
 	catch(const std::exception &e)
 	{
 		std::cout << "Exception thrown: " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		if (form.getSigned() == true)
+			std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout
+		<< this->_name << " couldn't sign " << form.getName()
+		<< " because " << e.what() << std::endl;
 	}
 }
 

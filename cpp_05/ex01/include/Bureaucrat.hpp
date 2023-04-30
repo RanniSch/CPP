@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:22:38 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/29 16:33:22 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/04/30 12:08:53 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
         public:
@@ -23,7 +26,7 @@ class Bureaucrat {
                 Bureaucrat(const Bureaucrat &copy);
 
                 // Destructor
-                virtual ~Bureaucrat (void);
+                ~Bureaucrat (void);
 
                 // Overloaded Operator
                 Bureaucrat &operator=(const Bureaucrat &src);
@@ -31,6 +34,7 @@ class Bureaucrat {
                 // Member functions
                 void increment();
                 void decrement();
+                void signForm(Form &form);
                 
                 // Getter
                 std::string     getName() const;
