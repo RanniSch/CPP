@@ -6,17 +6,18 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:27:27 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/29 16:56:25 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/04/30 09:27:35 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(void) : _name("Default"), _grade(1)
 {
     std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
+// if error in try, function goes into catch
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
 {
     std::cout << this->getName() << " tries to be a Bureaucrat!" << std::endl;
@@ -35,7 +36,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
     catch (const std::exception &e)
 	{
 		std::cout << "Exception thrown: " << e.what() << std::endl;
-		_grade = 150;
+		//_grade = 150;
 	}
 }
 
@@ -74,10 +75,12 @@ void	Bureaucrat::increment()
 	{
 		if ((this->getGrade() - 1) < 1)
 			throw GradeTooHighException();
+		else if ((this->getGrade() - 1) > 150)
+			throw GradeTooLowException();
 		else
         {
-			this->_grade = this->getGrade() - 1;
-            std::cout << "Decremented grade to " << this->getGrade() << std::endl;
+			this->_grade--;
+            std::cout << "Incremented grade to " << this->getGrade() << std::endl;
         }
     }
 	catch(const std::exception &e)
@@ -97,7 +100,7 @@ void	Bureaucrat::decrement()
 			throw GradeTooHighException();
 		else
 		{
-			this->_grade = this->getGrade() + 1;
+			this->_grade++;
 			std::cout << "Decremented grade to " << this->getGrade() << std::endl;
 		}
 	}
@@ -109,15 +112,16 @@ void	Bureaucrat::decrement()
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Bureaucrat's grade is too high grade is not valid!");
+	return ("Bureaucrat's grade is too high, grade is not valid!");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Bureaucrat's grade is too low grade is not valid!");
+	return ("Bureaucrat's grade is too low, grade is not valid!");
 }
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &copy)
 {
-	return (os << copy.getName() << ", bureaucrat grade " << copy.getGrade() << std::endl);
+	os << copy.getName() << ", bureaucrat grade " << copy.getGrade() << std::endl;
+	return (os);
 }
