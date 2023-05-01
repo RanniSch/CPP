@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 10:00:06 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/30 13:48:16 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/01 13:30:49 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void    Form::beSigned(const Bureaucrat &copy)
             throw GradeTooHighException();
         else if (this->signIt() > 150 || this->executeIt() > 150)
             throw GradeTooLowException();
-        else if(this->_signit >= copy.getGrade() && _signed == false)
+        else if(this->_signit >= copy.getGrade() && this->_signed == false)
         {
 		    this->_signed = true;
             std::cout << this->getName() << " got signed!" << std::endl;

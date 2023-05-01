@@ -1,0 +1,81 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/01 11:24:39 by rschlott          #+#    #+#             */
+/*   Updated: 2023/05/01 13:39:51 by rschlott         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ShrubberyCreationForm.hpp"
+
+ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Default", 145, 137)
+{
+	this->setForm("ShrubberyCreationForm");
+    std::cout << "ShrubberyCreationForm default constructor called." << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
+{
+	this->setForm("ShrubberyCreationForm");
+    std::cout << "ShrubberyCreationForm target constructor called." << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy.getName(), 145, 137)
+{
+	std::cout << "ShrubberyCreationForm copy constructor." << std::endl;
+	
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm(void)
+{
+	std::cout << "ShrubberyCreationForm destructor." << std::endl;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
+{
+	std::cout << "ShrubberyCreationForm assignement operator overload." << std::endl;
+	this->_target = src._target;
+	return (*this);
+}
+
+void	ShrubberyCreationForm::execute(const Bureaucrat &obj) const
+{
+    try
+    {
+        if (this->getSigned() == false)
+		    throw NotSignedYet();
+	    else if (this->signIt() < obj.getGrade())
+		    throw GradeTooHighException();
+	    else
+        {
+			//AForm->_signed == true;
+		    std::string	name;
+		    std::string	line; // nötig?
+		    name = this->getName();
+        
+            //this->_target = (target +  "_shrubbery");
+		    name.append("_shrubbery");
+		    std::ofstream execFile(name.c_str());
+		    execFile << "       _-_" << std::endl;
+		    execFile << "   / ~~   ~~ \\" << std::endl;
+		    execFile << " /~~         ~~\\" << std::endl;
+		    execFile << "{               }" << std::endl;
+		    execFile << " *  _-     -_  *" << std::endl;
+		    execFile << "      \\\\ //  " << std::endl;
+		    execFile << "       | |    " << std::endl;
+		    execFile << "       | |     " << std::endl;
+		    execFile << "       | |     " << std::endl;
+		    execFile << "      // \\\\" << std::endl; 
+		    execFile.close();
+		    std::cout <<  "Successfully created file " << name << "!" << std::endl;
+		}
+    }
+    catch (const std::exception &e)
+	{
+		std::cout << "\033[34mException thrown: \033[0m" << e.what() << std::endl;
+	}
+}

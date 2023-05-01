@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:27:27 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/30 13:54:49 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/01 13:23:15 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,16 +110,31 @@ void	Bureaucrat::decrement()
 	}
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
-		std::cout << this->_name;
+		std::cout << "drin" << std::endl;
+		std::cout << this->getName();
 		form.beSigned(*this);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getFormType() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Form not executed: " << this->getName() << e.what() << std::endl;
+		//std::cerr << e.what() << std::endl;
 	}
 }
 
@@ -131,6 +146,11 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Bureaucrat's grade is too low, grade is not valid!");
+}
+
+const char *Bureaucrat::ExecuteFormException::what() const throw()
+{
+	return (" was unable to execute the form!");
 }
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &copy)

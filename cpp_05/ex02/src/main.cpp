@@ -6,18 +6,57 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:35:11 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/30 13:54:53 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/01 13:43:31 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-//#include "Form.hpp"
-
 #include <iostream>
 
-int main(void)
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+//#include "RobotomyRequestForm.hpp"
+//#include "PresidentialPardonForm.hpp"
+
+int	main(void)
 {
-	Bureaucrat	Bob("Bob", 130);
+	try
+	{
+		ShrubberyCreationForm	test0;
+		ShrubberyCreationForm	test1("Shrubb");
+		//std::cout << test0;
+		//std::cout << test1;
+		//RobotomyRequestForm		test2("Robotomy");
+		//PresidentialPardonForm	test3("Obama");
+		Bureaucrat	hans("Hans", 2);
+		Bureaucrat	peter("Peter", 136);
+		//AForm test("Test",0, 151); // modify to proceed
+ 		test1.beSigned(hans);
+		test1.execute(peter);
+		//test2.beSigned(hans);
+		//test2.execute(hans);
+		test1.beSigned(hans);
+		hans.executeForm(test1);
+		peter.executeForm(test1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+		return 1;
+	}
+
+	std::cout << "\nWe test the cannoncical form." << std::endl;
+	AForm		blue("blue",3, 3);
+	AForm		green("green", 69, 69);
+	AForm		bleen(green);
+	Bureaucrat	daGerman("Clemens", 1);
+	blue.beSigned(daGerman);
+	green = blue;
+	green.execute(daGerman);
+	std::cout << green;// <- status is signed because of copy assignment constructor
+	return 0;
+	
+	/*Bureaucrat	Bob("Bob", 130);
 	Bureaucrat	Linda("Linda", 4);
 	Form		B27("B27", 120, 90);
 	Form		B28("B28", 3, 1);
@@ -63,5 +102,5 @@ int main(void)
 	std::cout << B28;
 	Linda.signForm(B27);
 	
-	return (0);
+	return (0);*/
 }
