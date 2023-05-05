@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:27:27 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/01 13:23:15 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/05 06:36:11 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,6 @@ void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
-		std::cout << "drin" << std::endl;
-		std::cout << this->getName();
 		form.beSigned(*this);
 	}
 	catch (std::exception &e)
@@ -129,7 +127,7 @@ void	Bureaucrat::executeForm(const AForm &form)
 	try
 	{
 		form.execute(*this);
-		std::cout << this->getName() << " executed " << form.getFormType() << std::endl;
+		//std::cout << this->getName() << " executed " << form.getFormType() << "." << std::endl;
 	}
 	catch (std::exception &e)
 	{

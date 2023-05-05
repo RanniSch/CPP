@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:24:39 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/01 13:39:51 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/05 06:25:39 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Default", 145, 137)
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
 {
 	this->setForm("ShrubberyCreationForm");
-    std::cout << "ShrubberyCreationForm target constructor called." << std::endl;
+    std::cout << "ShrubberyCreationForm constructor for '" << target << "' called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy.getName(), 145, 137)
@@ -44,20 +44,20 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void	ShrubberyCreationForm::execute(const Bureaucrat &obj) const
 {
-    try
+    std::cout << obj.getName() << " attempts to execute " << this->getName() << "." << std::endl;
+	try
     {
-        if (this->getSigned() == false)
+        std::cout << "form exec grade " << this->executeIt() << std::endl;
+		if (this->getSigned() == false)
 		    throw NotSignedYet();
-	    else if (this->signIt() < obj.getGrade())
+	    else if (obj.getGrade() > this->executeIt())
 		    throw GradeTooHighException();
 	    else
         {
-			//AForm->_signed == true;
 		    std::string	name;
 		    std::string	line; // nötig?
 		    name = this->getName();
         
-            //this->_target = (target +  "_shrubbery");
 		    name.append("_shrubbery");
 		    std::ofstream execFile(name.c_str());
 		    execFile << "       _-_" << std::endl;
@@ -71,7 +71,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &obj) const
 		    execFile << "       | |     " << std::endl;
 		    execFile << "      // \\\\" << std::endl; 
 		    execFile.close();
-		    std::cout <<  "Successfully created file " << name << "!" << std::endl;
+		    std::cout << obj.getName() << " successfully executed file " << name << "!" << std::endl;
 		}
     }
     catch (const std::exception &e)

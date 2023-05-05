@@ -102,7 +102,7 @@ void	AForm::setForm(std::string typeForm)
 
 void    AForm::beSigned(const Bureaucrat &obj)
 {
-	std::cout << " attempts to sign the AForm " << this->getName() << std::endl;
+	std::cout << obj.getName() << " attempts to sign the AForm " << this->getName() << "." << std::endl;
 
     try
     {
@@ -113,7 +113,7 @@ void    AForm::beSigned(const Bureaucrat &obj)
         else if(this->_signit >= obj.getGrade() && _signed == false)
         {
 		    this->_signed = true;
-            std::cout << this->getName() << " got signed!" << std::endl;
+            std::cout << obj.getName() << " signed " << this->getName() << "!" << std::endl;
         }
 	    else if(this->_signit < obj.getGrade()) // was < before
 		    throw GradeTooHighException(); // function of AForm! Was "TooLow" before

@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:35:11 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/01 13:43:31 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/05 06:16:29 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(void)
 		//RobotomyRequestForm		test2("Robotomy");
 		//PresidentialPardonForm	test3("Obama");
 		Bureaucrat	hans("Hans", 2);
-		Bureaucrat	peter("Peter", 136);
+		Bureaucrat	peter("Peter", 138);
 		//AForm test("Test",0, 151); // modify to proceed
  		test1.beSigned(hans);
 		test1.execute(peter);
@@ -45,7 +45,7 @@ int	main(void)
 		return 1;
 	}
 
-	std::cout << "\nWe test the cannoncical form." << std::endl;
+	/*std::cout << "\nWe test the cannoncical form." << std::endl;
 	AForm		blue("blue",3, 3);
 	AForm		green("green", 69, 69);
 	AForm		bleen(green);
@@ -53,8 +53,8 @@ int	main(void)
 	blue.beSigned(daGerman);
 	green = blue;
 	green.execute(daGerman);
-	std::cout << green;// <- status is signed because of copy assignment constructor
-	return 0;
+	std::cout << green;// <- status is signed because of copy assignment constructor*/
+	return (0);
 	
 	/*Bureaucrat	Bob("Bob", 130);
 	Bureaucrat	Linda("Linda", 4);
