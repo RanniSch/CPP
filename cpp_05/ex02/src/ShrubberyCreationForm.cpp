@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:24:39 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/05 06:25:39 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/05 11:18:58 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &obj) const
     std::cout << obj.getName() << " attempts to execute " << this->getName() << "." << std::endl;
 	try
     {
-        std::cout << "form exec grade " << this->executeIt() << std::endl;
 		if (this->getSigned() == false)
 		    throw NotSignedYet();
 	    else if (obj.getGrade() > this->executeIt())
@@ -76,6 +75,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &obj) const
     }
     catch (const std::exception &e)
 	{
-		std::cout << "\033[34mException thrown: \033[0m" << e.what() << std::endl;
+		std::cout << "\033[34mException thrown: \033[0m" << 
+		obj.getName() << " couldn't execute " << this->getName() << " because " << e.what() << std::endl;
 	}
 }

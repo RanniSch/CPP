@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:27:27 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/30 13:48:19 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/05 12:04:49 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name)
     catch (const std::exception &e)
 	{
 		std::cout << "Exception thrown: " << e.what() << std::endl;
-		//_grade = 150;
+		//_grade = 160;
 	}
 }
 

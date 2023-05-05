@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/30 10:00:06 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/01 13:30:49 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/05 13:02:03 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Form::Form(void) : _name("Default Form"), _signed(false), _signit(75), _executei
 
 Form::Form(std::string name, int signit, int executeit) : _name(name), _signit(signit), _executeit(executeit)
 {
+    this->_signed = false;
     std::cout << "Form constructor called!" << std::endl;
     try
     {
@@ -110,19 +111,4 @@ void    Form::beSigned(const Bureaucrat &copy)
 	{
 		std::cout << "\033[33mException thrown: \033[0m" << e.what() << std::endl;
 	}
-
-	/*if (this->_signit <= 150 && this->_signit >= 1)
-    {
-        if(this->_signit >= copy.getGrade() && _signed == false)
-        {
-		    this->_signed = true;
-            std::cout << this->getName() << " got signed!" << std::endl;
-        }
-	    else if(this->_signit < copy.getGrade()) // was < before
-		    throw GradeTooHighException(); // function of Form! Was "TooLow" before
-	    else if(this->_signed == true) 
-		    std::cout << this->getName() << " is already signed!" << std::endl;
-    }
-    else
-        std::cout << this->getName() << " cannot be signed as its grade is invalid!" << std::endl;*/
 }

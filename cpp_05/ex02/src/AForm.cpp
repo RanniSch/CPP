@@ -19,6 +19,7 @@ AForm::AForm(void) : _name("Default AForm"), _signed(false), _signit(75), _execu
 
 AForm::AForm(std::string name, int signit, int executeit) : _name(name), _signit(signit), _executeit(executeit)
 {
+    this->_signed = false;
     std::cout << "AForm constructor called!" << std::endl;
     try
     {
@@ -110,35 +111,22 @@ void    AForm::beSigned(const Bureaucrat &obj)
             throw GradeTooHighException();
         else if (this->signIt() > 150 || this->executeIt() > 150)
             throw GradeTooLowException();
-        else if(this->_signit >= obj.getGrade() && _signed == false)
+        else if(this->_signit >= obj.getGrade() && this->_signed == false)
         {
 		    this->_signed = true;
             std::cout << obj.getName() << " signed " << this->getName() << "!" << std::endl;
         }
-	    else if(this->_signit < obj.getGrade()) // was < before
-		    throw GradeTooHighException(); // function of AForm! Was "TooLow" before
+	    else if(this->_signit < obj.getGrade())
+		    throw GradeTooHighException();
 	    else if(this->_signed == true) 
 		    std::cout << this->getName() << " is already signed!" << std::endl;
     }
     catch (const std::exception &e)
 	{
-		std::cout << "\033[33mException thrown: \033[0m" << e.what() << std::endl;
+		std::cout << "CATCH signIt " << this->signIt() << " executeIt " << this->executeIt() << std::endl;
+        std::cout << "\033[34mException thrown: \033[0m" << obj.getName()
+         << " couldn't sign " << this->getName() << " because " << e.what() << std::endl;
 	}
-
-	/*if (this->_signit <= 150 && this->_signit >= 1)
-    {
-        if(this->_signit >= copy.getGrade() && _signed == false)
-        {
-		    this->_signed = true;
-            std::cout << this->getName() << " got signed!" << std::endl;
-        }
-	    else if(this->_signit < copy.getGrade()) // was < before
-		    throw GradeTooHighException(); // function of AForm! Was "TooLow" before
-	    else if(this->_signed == true) 
-		    std::cout << this->getName() << " is already signed!" << std::endl;
-    }
-    else
-        std::cout << this->getName() << " cannot be signed as its grade is invalid!" << std::endl;*/
 }
 
 std::string	AForm::getFormType()const
@@ -156,7 +144,7 @@ void	AForm::execute(const Bureaucrat &executor)const
 	    	throw GradeTooHighException();
 	    else
         {
-	    	std::cout << this->getName() << " is being executed !" << std::endl;
+	    	std::cout << this->getName() << " is being executed!" << std::endl;
 	    }
     }
     catch (const std::exception &e)
