@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:24:39 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/05 11:18:58 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/06 09:15:18 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
+/*
+* Executes for Bureaucrats with grades: sign 145, exec 137.
+* Creates a file <target>_shrubbery in the working directory
+* and writes ASCII trees inside it.
+*/
 void	ShrubberyCreationForm::execute(const Bureaucrat &obj) const
 {
     std::cout << obj.getName() << " attempts to execute " << this->getName() << "." << std::endl;

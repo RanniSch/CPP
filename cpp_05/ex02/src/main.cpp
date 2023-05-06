@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:35:11 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/05 13:05:25 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/06 09:18:20 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-//#include "RobotomyRequestForm.hpp"
-//#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main(void)
 {
@@ -26,8 +26,8 @@ int	main(void)
 		ShrubberyCreationForm	test1("Shrubb");
 		//std::cout << test0;
 		//std::cout << test1;
-			//RobotomyRequestForm		test2("Robotomy");
-			//PresidentialPardonForm	test3("Obama");
+		RobotomyRequestForm		test2("Robotomy");
+		PresidentialPardonForm	test3("Obama");
 		Bureaucrat	hans("Hans", 2);
 		Bureaucrat	peter("Peter", 138);
 		//AForm test("Test",0, 151); // modify to proceed
@@ -35,10 +35,20 @@ int	main(void)
 		peter.signForm(test1);
 		test1.beSigned(hans);
 		test1.execute(peter);
-			//test2.beSigned(hans);
-			//test2.execute(hans);
+		test2.execute(hans);
+		test2.beSigned(peter);
+		test2.beSigned(hans);
+		test2.execute(hans);
+		test3.execute(hans);
+		test3.beSigned(peter);
+		test3.beSigned(hans);
+		test3.execute(hans);
 		hans.executeForm(test1);
 		peter.executeForm(test1);
+		peter.executeForm(test2);
+		hans.executeForm(test2);
+		peter.executeForm(test3);
+		hans.executeForm(test3);
 	}
 	catch(const std::exception& e)
 	{
@@ -46,7 +56,7 @@ int	main(void)
 		return 1;
 	}
 
-	std::cout << "\nTesting the cannoncical form.\n" << std::endl;
+	std::cout << "\n\033[32mTesting the cannoncical form:\033[0m" << std::endl;
 	AForm		blue("blue",3, 3);
 	Bureaucrat	linda("Linda", 1);
 	

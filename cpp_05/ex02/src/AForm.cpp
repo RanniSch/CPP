@@ -123,7 +123,6 @@ void    AForm::beSigned(const Bureaucrat &obj)
     }
     catch (const std::exception &e)
 	{
-		std::cout << "CATCH signIt " << this->signIt() << " executeIt " << this->executeIt() << std::endl;
         std::cout << "\033[34mException thrown: \033[0m" << obj.getName()
          << " couldn't sign " << this->getName() << " because " << e.what() << std::endl;
 	}

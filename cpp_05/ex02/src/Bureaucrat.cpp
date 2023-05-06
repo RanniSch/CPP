@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 16:27:27 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/05 13:02:31 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/06 08:18:12 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,10 @@ void	Bureaucrat::decrement()
 	}
 }
 
+/*
+* Bureaucrat is the highest base class!
+* To see if the sign function in the AForm base class got really executed.
+*/
 void	Bureaucrat::signForm(AForm &form)
 {
 	try
@@ -122,6 +126,10 @@ void	Bureaucrat::signForm(AForm &form)
 	}
 }
 
+/*
+* Bureaucrat is the highest base class!
+* To see if execute functions in the 3 concrete classes got really executed.
+*/
 void	Bureaucrat::executeForm(const AForm &form)
 {
 	try

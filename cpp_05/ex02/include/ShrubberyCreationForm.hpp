@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 11:05:33 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/01 12:16:30 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/06 09:09:07 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "Bureaucrat.hpp"                                                                                                                                                                  
 # include "AForm.hpp"
-# include <fstream> // for what?
+# include <fstream> // for std::ofstream -> file execution
 
 class Bureaucrat;
 
