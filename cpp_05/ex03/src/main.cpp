@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:35:11 by rschlott          #+#    #+#             */
-/*   Updated: 2023/05/06 10:36:50 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/05/06 10:40:33 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,14 @@
 	std::cout << green;// <- status is signed because of copy assignment constructor
 	std::cout << bleen;
 
-	AForm green(blue); // deep copy gets created.
-	std::cout << green;
-	std::cout << blue;
-	blue.beSigned(linda);
-	std::cout << blue;
-	std::cout << green;
-	green = blue;
-	std::cout << green;
+	//AForm green(blue); // deep copy gets created.
+	//std::cout << green;
+	//std::cout << blue;
+	//blue.beSigned(linda);
+	//std::cout << blue;
+	//std::cout << green;
+	//green = blue;
+	//std::cout << green;
 	
 	return (0);
 }*/
