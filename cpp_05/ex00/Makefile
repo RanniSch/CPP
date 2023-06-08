@@ -6,7 +6,7 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/04/29 15:22:20 by rschlott         ###   ########.fr        #
+#    Updated: 2023/06/08 11:48:11 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,16 +65,16 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
 clean:
 	@if [ -d "$(OBJ_DIR)" ]; then \
 	rm -rf $(OBJ_DIR); \
-	echo "$(BLUE)Deleting all objects from /ex01...$(RESET)"; else \
-	echo "No objects to remove from /ex01."; \
+	echo "$(BLUE)Deleting all objects from /ex00...$(RESET)"; else \
+	echo "No objects to remove from /ex00."; \
 	fi;
 
 ### fclean Rule ###
 fclean: clean
 	@if [ -f "$(NAME)" ]; then \
 	rm -f $(NAME); \
-	echo "$(BLUE)Deleting $(NAME) from ex01...$(RESET)"; else \
-	echo "No Executable to remove from ex01."; \
+	echo "$(BLUE)Deleting $(NAME) from ex00...$(RESET)"; else \
+	echo "No Executable to remove from ex00."; \
 	fi;
 
 ### re Rule ###

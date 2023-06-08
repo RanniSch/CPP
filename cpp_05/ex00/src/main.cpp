@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:35:11 by rschlott          #+#    #+#             */
-/*   Updated: 2023/04/30 09:54:29 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/08 11:50:07 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main(void)
 {
     // TEST 1: clear test
 	Bureaucrat def;
-	std::cout << def.getName() << std::endl;
-	std::cout << def.getGrade() << std::endl;
+	std::cout << "Default name: " << def.getName() << std::endl;
+	std::cout << "Default grade: " << def.getGrade() << std::endl;
 	def.decrement();
 	Bureaucrat test1("Ben", 7);
 	Bureaucrat test2("Tom", 1);
