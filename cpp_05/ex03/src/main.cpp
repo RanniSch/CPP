@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 15:35:11 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/08 11:43:53 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/08 12:02:44 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main()
 	AForm	*form_1;
 
 	form_1 = intern_1.makeForm("ShrubberyCreationForm", "palm_tree");
+	//form_1 = intern_1.makeForm("ShrubberyCreationForm", "bonsai");
 	form_1->beSigned(Tom);
 	Tom.signForm(*form_1);
 	Tom.executeForm(*form_1);
