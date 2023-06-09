@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:54:50 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/09 13:41:11 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/09 13:45:33 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,7 +292,7 @@ void	ScalarConverter::createConvFromFloat(std::string const &input)
 	}
 	else
 		std::cout << "\033[36m- into char: impossible" << "\033[0m" << std::endl;
-	if (f < (float)INT_MIN || f > (float)INT_MAX)
+	if (f < (float)INT_MIN || f > (float)INT_MAX)   // typecasting float or "error: implicit conversion from 'int' to 'float' changes value from 2147483647 to 2147483648 [-Werror,-Wimplicit-int-float-conversion]"
 		std::cout << "\033[36m- into int: impossible" << "\033[0m" << std::endl;
 	else
 		std::cout << "\033[36m- into int: " << static_cast<int>(f) << "\033[0m" << std::endl;
