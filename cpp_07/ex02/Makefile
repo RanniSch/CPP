@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/06/09 20:17:04 by rschlott         ###   ########.fr        #
+#    Updated: 2023/06/11 09:57:27 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	identify
+NAME		=	array
 
 ### Compiler ###
 CC			=	c++
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp Base.cpp
+SRC_FILES	=	main.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
