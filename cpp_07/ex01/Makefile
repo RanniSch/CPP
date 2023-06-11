@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/06/09 20:17:04 by rschlott         ###   ########.fr        #
+#    Updated: 2023/06/10 23:00:09 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	identify
+NAME		=	iter
 
 ### Compiler ###
 CC			=	c++
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp Base.cpp
+SRC_FILES	=	main.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
@@ -65,16 +65,16 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
 clean:
 	@if [ -d "$(OBJ_DIR)" ]; then \
 	rm -rf $(OBJ_DIR); \
-	echo "$(BLUE)Deleting all objects from /ex02...$(RESET)"; else \
-	echo "No objects to remove from /ex02."; \
+	echo "$(BLUE)Deleting all objects from /ex01...$(RESET)"; else \
+	echo "No objects to remove from /ex01."; \
 	fi;
 
 ### fclean Rule ###
 fclean: clean
 	@if [ -f "$(NAME)" ]; then \
 	rm -f $(NAME); \
-	echo "$(BLUE)Deleting $(NAME) from ex02...$(RESET)"; else \
-	echo "No Executable to remove from ex02."; \
+	echo "$(BLUE)Deleting $(NAME) from ex01...$(RESET)"; else \
+	echo "No Executable to remove from ex01."; \
 	fi;
 
 ### re Rule ###

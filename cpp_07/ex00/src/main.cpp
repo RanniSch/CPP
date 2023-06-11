@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:26:07 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/10 22:52:03 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/11 09:22:46 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main(void)
 	}
 
 	/*{
-		std::cout << "\n\033[32m----- Eval Sheet tests -----\033[0m" << std::endl;
+		std::cout << "\n\033[32m----- Eval Sheet test -----\033[0m" << std::endl;
 		Awesome a(2), b(4);
 		swap(a,b);
 		std::cout << a << " " << b << std::endl;

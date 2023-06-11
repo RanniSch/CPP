@@ -6,14 +6,14 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:26:02 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/10 22:42:48 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/11 09:24:14 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+# define WHATEVER_HPP
 
-#include <iostream>
+# include <iostream>
 
 /*
 * syntax / semantics for a “function template”:
