@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 10:00:59 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/11 12:30:26 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/11 13:55:19 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@
 int main(void)
 {
     std::cout << "\n\033[32m----- Own tests -----\033[0m\n" << std::endl;
-    /*{
+    {
 		std::cout << "\033[35mConstruction of an Array without parameter:\033[0m" << std::endl;
 		Array<int> arr1; // difference to function template! explicit about the parameters over which template classes are instantiating
         std::cout << "Print array elements: ";
 		arr1.printArrayElements();
-	}*/
+	}
 
-	{
+	/*{
 		std::cout << "\n\033[35mConstruction of an Array with 3 unsigned int n elements as parameter:\033[0m" << std::endl;
 		Array<int> arr2(3);
         std::cout << "Print array elements: ";
 		arr2.printArrayElements();
-	}
+	}*/
 
 	/*{
 		std::cout << "\033[35mTesting exceptions:\033[0m" << std::endl;
@@ -63,9 +63,9 @@ int main(void)
 		{
 			std::cerr << e.what() << std::endl;
 		}
-	}
+	}*/
 
-	{
+	/*{
 		std::cout << "\033[35mConstruction of an Array by copy\033[0m\n" << std::endl;
 		std::cout << "\033[35mConstruction of an array: arr4 with SIZE:\033[0m" << std::endl;
 		Array<int>	arr4(SIZE);
@@ -109,9 +109,9 @@ int main(void)
 		arr5 = arr6;
         std::cout << "arr5 elements: ";
 		arr5.printArrayElements();
-	}
+	}*/
 
-	{
+	/*{
 		std::cout << "\033[35mConstruction of an Array of strings\033[0m\n" << std::endl;
 		std::cout << "\033[35mConstruction of an array of 10 strings elements: arr7\033[0m\n" << std::endl;
 		Array<std::string> arr7(SIZE);
@@ -130,9 +130,9 @@ int main(void)
 		arr7[9] = "!";
         std::cout << "arr7 with different values (r/w through operator[]): " << std::endl;
 		arr7.printArrayElements();
-	}
+	}*/
 
-	{
+	/*{
 		std::cout << "\033[35mConstruction of an Array with parameter / compare with new []\033[0m\n" << std::endl;
 		std::cout << "\033[35mConstruction of an array of 10 int n elements from template class: arr8\033[0m" << std::endl;
 		Array<int> arr8(SIZE);

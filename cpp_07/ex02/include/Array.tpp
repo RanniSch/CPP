@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 10:36:01 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/11 12:29:46 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:23:39 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,19 @@ unsigned int    Array<T>::size(void)
 template <typename T>
 void	Array<T>::printArrayElements(void)
 {
+	unsigned int i = -1;
+
 	if (_size == 0)
 		std::cout << "Array is empty!" << std::endl;
 	else
 	{
-		for (unsigned int i = 0; i < this->size(); i++)
+		while (++i < this->size())
 		{
 			if (i != this->size() - 1)
 				std::cout << _array[i] << " - ";
 			else
 				std::cout << _array[i] << std::endl;
-		}
-		
+		}		
 	}
 }
 

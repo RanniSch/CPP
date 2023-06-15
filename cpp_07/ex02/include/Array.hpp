@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 10:16:25 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/11 10:47:30 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/15 08:23:43 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Array {
 		        unsigned int	size(void);
 
 		        // Member function
-		        void    printArrayElements(void);
+				void    printArrayElements(void);
 
 		        // Exception
                 class OutOfRangeException : public std::exception {

@@ -6,13 +6,13 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 08:26:07 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/11 09:22:46 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:33:07 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
 
-/*class Awesome
+class Awesome
 {
 	public:
 		Awesome(void) : _n(0) {}
@@ -30,7 +30,7 @@
 		int	_n;
 };
 
-std::ostream & operator<<(std::ostream & o, const Awesome &a) { o << a.get_n(); return o; }*/
+std::ostream & operator<<(std::ostream & o, const Awesome &a) { o << a.get_n(); return o; }
 
 int main(void)
 {
@@ -52,13 +52,13 @@ int main(void)
 		std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	}
 
-	/*{
+	{
 		std::cout << "\n\033[32m----- Eval Sheet test -----\033[0m" << std::endl;
 		Awesome a(2), b(4);
 		swap(a,b);
 		std::cout << a << " " << b << std::endl;
 		std::cout << max(a, b) << std::endl;
 		std::cout << min(a, b) << std::endl;
-	}*/
+	}
 	return 0;
 }
