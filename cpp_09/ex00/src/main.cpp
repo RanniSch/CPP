@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:49:07 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 09:55:17 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:55:33 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	}
 	BitcoinExchange	b;
 
-	b.storeDatabase((char *)"input.txt");
+	b.storeDatabase(argv[1]);
     //b.storeDatabase((char *)"data.csv");
 	b.printBtcValue(argv[1]);
 	return (0);
