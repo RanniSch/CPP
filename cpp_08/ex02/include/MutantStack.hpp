@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:41:07 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 09:24:47 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:42:23 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define MUTANTSTACK_HPP
 
 #include <iostream>
-#include <stack>
-#include <list>
+#include <stack> // for use of stack
+#include <list> // for use of list to compare with stack (main)
 
 template < typename T > 
 class MutantStack : public std::stack < T > { //MutantStack will also inherit (implicitly) the template argument T
