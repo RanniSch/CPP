@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:41:32 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 18:26:36 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/16 23:15:52 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,28 @@
 
 class	BitcoinExchange {
 	    public:
-		        BitcoinExchange(void);
-		        BitcoinExchange(const BitcoinExchange& src);
-		        BitcoinExchange& operator=(const BitcoinExchange& src);
-		        ~BitcoinExchange (void);
+		        // Constructors
+                BitcoinExchange(void);
+		        BitcoinExchange(const BitcoinExchange& copy);
+                
+                // Destructor
+                ~BitcoinExchange (void);
 
+                // Overload operator
+		        BitcoinExchange& operator=(const BitcoinExchange& src);
+
+                // Setter and getter
+                void    						setExchangeRate(const std::pair<std::string, float>& exchangeRate);
+                std::map<std::string, float>	getExchangeRateMap(void);
+                
+                // Public member functions
 		        void							checkOpenFile(std::ifstream &infile);
-		        void							storeDatabase(char* infileName);
+		        void							dataExchangeRate(char* datafileName);
                 
                 int								checkDateValidity(std::string date);
 		        float							findBtcRate(std::string date);
 		        void							printBtcValue(char* infileName);
-		        
-                std::map<std::string, float>	getExchangeRateMap();
-		        void    						setExchangeRate(const std::pair<std::string, float>& exchangeRate);
+
 
 	    private:
 		        /*
@@ -47,7 +55,5 @@ class	BitcoinExchange {
                 */
                 std::map<std::string, float>	_btcExchangeRate;
 };
-
-void	printExchangeRate(const std::pair<std::string, float>& exchangeRate);
 
 #endif

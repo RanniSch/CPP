@@ -6,13 +6,13 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:44:19 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 19:12:35 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/16 23:15:24 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-//======== CONSTRUCTORS =========================================================================
+// Constructors
 
 /*
 * std::map<std::string, float>()
@@ -23,17 +23,25 @@ BitcoinExchange::BitcoinExchange(void) : _btcExchangeRate(std::map<std::string, 
 	std::cout << "BitcoinExchange default constructor called!" << std::endl;
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& src)
+/*
+* Shallow copy is enougth.
+*/
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& copy)
 {
-	// std::cout << BLU << "Copy constructor called from BitcoinExchange" << D << "\n";
-	*this = src;
+	std::cout << "BitcoinExchange copy constructor called!" << std::endl;
+	*this = copy;
 }
 
+// Destructor
+BitcoinExchange::~BitcoinExchange(void)
+{
+    std::cout << "BitcoinExchange destructor called!" << std::endl;
+}
 
-//======== OVERLOAD OPERATORS ===================================================================
+// Overload operator
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 {
-	// std::cout << BLU << "Copy assignment operator called from BitcoinExchange" << D << "\n";
+	std::cout << "BitcoinExchange copy assignment operator called!" << std::endl;
 	if (this != &src)
 	{
 		new (this) BitcoinExchange(src);
@@ -41,27 +49,19 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& src)
 	return (*this);
 }
 
-
-//======== DESTRUCTOR ===========================================================================
-BitcoinExchange::~BitcoinExchange(void)
-{
-    std::cout << "BitcoinExchange destructor called!" << std::endl;
-}
-
-
-//======== GETTER / SETTER ======================================================================
+// Setter and getter
 void	BitcoinExchange::setExchangeRate(const std::pair<std::string, float> &setExchangeRate)
 {
 	 this->_btcExchangeRate.insert(setExchangeRate);
 }
 
-std::map<std::string, float>	BitcoinExchange::getExchangeRateMap()
+std::map<std::string, float>	BitcoinExchange::getExchangeRateMap(void)
 {
 	return (_btcExchangeRate);
 }
 
 
-//======== MEMBER FUNCTIONS =====================================================================
+// Member functions
 
 /*
 * is_open() -> true if a file is open and associated with this stream object, false otherwise.
@@ -111,38 +111,33 @@ void	BitcoinExchange::checkOpenFile(std::ifstream &infile)
 *
 * close() -> Closes the file currently associated with the object, disassociating it from the stream.
 */
-void	BitcoinExchange::storeDatabase(char* infileName)
+void	BitcoinExchange::dataExchangeRate(char* datafileName)
 {
 	std::ifstream infile;
     
-    infile.open(infileName);
+    infile.open(datafileName);
 	checkOpenFile(infile);
 	
     std::string	line;
-	std::getline(infile, line); // Skip the first line "date | value"
+	std::getline(infile, line); // Skip the first line "date,value"
 	while(getline(infile, line))
 	{
-		//size_t	indexNum = line.find(","); // for data.csv
-        size_t	indexNum = line.find("|"); // for input.txt
-        //std::cout << "indexNum:_" << indexNum << std::endl; // for testing
+		size_t	indexNum = line.find(","); // for data.csv
 		if (indexNum == std::string::npos)
 		{
-			//std::cout << "indexNum: " << indexNum << std::endl; // for testing
-            //std::cout << "\033[31mError: Comma not found in line \"" << line << "\"\033[0m" << std::endl; // for testing
+            std::cout << "\033[31mError: Comma not found in line \"" << line << "\"\033[0m" << std::endl;
 			continue;
 		}
 		std::string	date = line.substr(0, indexNum);
 		std::string	value = line.substr(indexNum + 1); // +1 to start (safe) substr from after comma delimiter until end of line (for the values).
-		//std::cout << "value:_" << value << std::endl; // for testing
         float numericValue = static_cast<float>(atof(value.c_str()));
-        //std::cout << "numericValue:_" << numericValue << std::endl; // for testing
 		this->_btcExchangeRate.insert(std::pair<std::string, float > (date, numericValue));
     }
 	infile.close();
 }
 
 /*
-* Functions checks for western date standard and returns -1 if date is invalid.
+* Function checks for western date standard and returns -1 if date is invalid.
 */
 int	BitcoinExchange::checkDateValidity(std::string date)
 {
@@ -163,40 +158,34 @@ float	BitcoinExchange::findBtcRate(std::string date)
 
 	for (it = _btcExchangeRate.begin(); it != _btcExchangeRate.end(); it++)
 	{
-        std::cout << "it->first_" << it->first << " date_" << date << std::endl;
         if (it->first < date) // check if the current date (looping iterator it points to first, which is the date) in the map is earlier than the desired (incoming) date.
 		{
 			if (closestEarlierDate.empty() || closestEarlierDate < it->first) // check if this date is closer than the previously found closest date
 			{
-				closestEarlierDate = it->first;     // it->first -> "date" of infile
-                std::cout << "cED1_" << closestEarlierDate << "_" << std::endl;
-				closestEarlierRate = it->second;    // it->second -> "value" of infile
-                std::cout << "cER2_" << closestEarlierRate << "_" << std::endl;
+				closestEarlierDate = it->first;     // it->first -> "date" of data.csv
+				closestEarlierRate = it->second;    // it->second -> "value" of data.csv
 			}
 		}
-		else if (it->first == date)     // it->first -> "date" of infile
+		else if (it->first == date)     // it->first -> "date" of data.csv
 		{
-			btcRate = it->second;   // value of infile
-            std::cout << "Rate1:_" << btcRate << std::endl;
+			btcRate = it->second;   // it->second -> "value" of data.csv 
 			dateFound = true;
 			break;
 		}
 	}
 	if (dateFound == false)
 	{
-		std::cout << "drin" << std::endl;
         if (!closestEarlierDate.empty())
 			btcRate = closestEarlierRate;
 		else
 			btcRate = 0;
 	}
-    std::cout << "Rate:_" << btcRate << std::endl;
 	return (btcRate);
 }
 
 void	BitcoinExchange::printBtcValue(char* infileName)
 {
-	std::ifstream infile;
+    std::ifstream infile;
 
     infile.open(infileName);
 	checkOpenFile(infile);
@@ -233,16 +222,8 @@ void	BitcoinExchange::printBtcValue(char* infileName)
 			continue;
 		}
 		float btcRate = 0;
-        std::cout << "incoming date_" << date << std::endl;
 		btcRate = findBtcRate(date);
 		std::cout << date << " => " << btcNumberInt << " = " << static_cast<float>(btcNumberInt * btcRate) << std::endl;
 	}
 	infile.close();
-}
-
-
-//======== FUNCTIONS ============================================================================
-void	printExchangeRate(const std::pair<std::string, float>& exchangeRate)
-{
-	std::cout << exchangeRate.first << " , " << exchangeRate.second << std::endl;
 }
