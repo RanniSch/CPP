@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:41:32 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 23:15:52 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/16 23:23:12 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 # include <iostream>
 # include <fstream> // for close()
-//# include <string>
 # include <cstring>  // for c_str()
-# include <algorithm>
+# include <algorithm> // for atof()
 # include <map> // for class template map
 
 class	BitcoinExchange {

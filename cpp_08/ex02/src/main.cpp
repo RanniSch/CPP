@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:43:29 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 09:32:07 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/17 00:05:18 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
 		mstack.push(21);
 		std::cout << "\n\033[33m" << mstack.top() << " is the top element of the stack. From ";
         std::cout << mstack.size() << " elements in total.\033[0m"<< std::endl;
-		mstack.pop();           // The pop() function is used to remove or an element from the top of the stack.
+		mstack.pop();           // The pop() function is used to remove an element from the top of the stack.
 		std::cout << mstack.size() << " element in the stack after pop."<< std::endl;
 		mstack.push(2);
 		mstack.push(5);

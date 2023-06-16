@@ -6,12 +6,12 @@
 #    By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 08:18:13 by rschlott          #+#    #+#              #
-#    Updated: 2023/06/15 09:50:23 by rschlott         ###   ########.fr        #
+#    Updated: 2023/06/16 23:21:33 by rschlott         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ### Program ###
-NAME		=	span
+NAME		=	RPN
 
 ### Compiler ###
 CC			=	c++
@@ -35,7 +35,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 ### Source Files ###
-SRC_FILES	=	main.cpp Span.cpp
+SRC_FILES	=	main.cpp RPN.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 
