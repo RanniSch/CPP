@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:43:05 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 08:46:52 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:26:55 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,11 @@ typename std::stack<T>::container_type::iterator MutantStack<T>::end()
 * begin()
 * returns an iterator pointing to the first element in the sequence. In Container it returns cont.begin().
 */
-template <typename T>
-typename std::stack<T>::container_type::const_iterator MutantStack<T>::begin() const
-{
-	return (std::stack<T>::c.begin());
-}
+// template <typename T>
+// typename std::stack<T>::container_type::const_iterator MutantStack<T>::begin() const
+// {
+// 	return (std::stack<T>::c.begin());
+// }
 
 /*
 * iterators are similar in concept to pointers:
@@ -124,11 +124,11 @@ typename std::stack<T>::container_type::const_iterator MutantStack<T>::begin() c
 * Returns an iterator referring to the past-the-end element in the vector container, which is the theoretical element that would follow the last element in the vector.
 * It does not point to any element, and thus shall not be dereferenced.
 */
-template <typename T>
-typename std::stack<T>::container_type::const_iterator MutantStack<T>::end() const
-{
-	return (std::stack<T>::c.end());
-}
+// template <typename T>
+// typename std::stack<T>::container_type::const_iterator MutantStack<T>::end() const
+// {
+// 	return (std::stack<T>::c.end());
+// }
 
 /*
 * Iterator functions
@@ -146,11 +146,11 @@ typename std::stack<T>::container_type::const_iterator MutantStack<T>::end() con
 * Returns a reverse iterator pointing to the last element in the vector (i.e., its reverse beginning).
 * rbegin points to the element right before the one that would be pointed to by member end().
 */
-template <typename T>
-typename std::stack<T>::container_type::reverse_iterator MutantStack<T>::rbegin()
-{
-	return (std::stack<T>::c.rbegin());
-}
+// template <typename T>
+// typename std::stack<T>::container_type::reverse_iterator MutantStack<T>::rbegin()
+// {
+// 	return (std::stack<T>::c.rbegin());
+// }
 
 /*
 * iterators are similar in concept to pointers:
@@ -164,32 +164,32 @@ typename std::stack<T>::container_type::reverse_iterator MutantStack<T>::rbegin(
 * Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector (which is considered its reverse end).
 * The range between vector::rbegin and vector::rend contains all the elements of the vector (in reverse order).
 */
-template <typename T>
-typename std::stack<T>::container_type::reverse_iterator MutantStack<T>::rend()
-{
-	return (std::stack<T>::c.rend());
-}
+// template <typename T>
+// typename std::stack<T>::container_type::reverse_iterator MutantStack<T>::rend()
+// {
+// 	return (std::stack<T>::c.rend());
+// }
 
 /*
 * rbegin()
 * Returns a reverse iterator pointing to the last element in the vector (i.e., its reverse beginning).
 * rbegin points to the element right before the one that would be pointed to by member end().
 */
-template <typename T>
-typename std::stack<T>::container_type::const_reverse_iterator MutantStack<T>::rbegin() const
-{
-	return (std::stack<T>::c.rbegin());
-}
+// template <typename T>
+// typename std::stack<T>::container_type::const_reverse_iterator MutantStack<T>::rbegin() const
+// {
+// 	return (std::stack<T>::c.rbegin());
+// }
 
 /*
 * rend()
 * Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector (which is considered its reverse end).
 * The range between vector::rbegin and vector::rend contains all the elements of the vector (in reverse order).
 */
-template <typename T>
-typename std::stack<T>::container_type::const_reverse_iterator MutantStack<T>::rend() const
-{
-	return (std::stack<T>::c.rend());
-}
+// template <typename T>
+// typename std::stack<T>::container_type::const_reverse_iterator MutantStack<T>::rend() const
+// {
+// 	return (std::stack<T>::c.rend());
+// }
 
 #endif
