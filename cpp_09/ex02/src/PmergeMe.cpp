@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 00:30:01 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/17 09:37:35 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/17 17:25:43 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ bool	PmergeMe::checkNoDuplicate(void)
 }
 
 /*
-*
+* Prints elements after sorted and stored in the vector container.
 */
 void	PmergeMe::printVector(void)
 {
@@ -134,7 +134,7 @@ void	PmergeMe::printVector(void)
 }
 
 /*
-*
+* Prints elements after sorted and stored in the deque container.
 */
 void	PmergeMe::printDeque(void)
 {
