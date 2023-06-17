@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:41:32 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 23:23:12 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/17 07:10:28 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <cstring>  // for c_str()
 # include <algorithm> // for atof()
 # include <map> // for class template map
+
+/*
+* Using map container in this exercise
+*/
 
 class	BitcoinExchange {
 	    public:

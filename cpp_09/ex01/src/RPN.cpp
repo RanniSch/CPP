@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:25:18 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/17 00:22:16 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/17 07:30:56 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int	RPN::calculate(const std::string input)
 				return (0);
 		i++;
 	}
-	if (!this->_C.empty()) // if stack is not empty
+	if (!this->_C.empty()) // if stack for operators is not empty after the call of operate() 
 	{
-		std::cout << "Error\n";
+		std::cout << "Error: Stack _C needs to be empty!" << std::endl;
 		return (0);
 	}
 	this->printResult();        // call of printResult()
@@ -97,19 +97,19 @@ int	RPN::inputCheck(const std::string input)
 		{
 			if (i < (size -1) && input[i + 1] != ' ') // space between values and operators obligated
 			{
-				std::cout << "Error\n";
+				std::cout << "Error: Invalid input!" << std::endl;
 				return (-1);
 			}
 		}
 		else if (input[i] != ' ') // if no num or no operator; has to be a space
 		{
-			std::cout << "Error\n";
+			std::cout << "Error: Space between each value needed!" << std::endl;
 			return (-1);
 		}
 	}
 	if (input.empty())
 	{
-		std::cout << "Error\n";
+		std::cout << "Error: Empty input!" << std::endl;
 		return (-1);
 	}
 	int count_i = 0;
@@ -122,13 +122,13 @@ int	RPN::inputCheck(const std::string input)
 			count_c++;      // num of chars
 		if (count_c > count_i && count_i < 2)       // more operators than numbers
 		{
-			std::cout << "Error\n";
+			std::cout << "Error: No operator needed!" << std::endl;
 			return (-1);
 		}
 	}
 	if (count_c >= count_i)     // more operators than numbers
 	{
-		std::cout << "Error\n";
+		std::cout << "Error: Unused operators!" << std::endl;
 		return (-1);
 	}
 	return (0);
@@ -146,7 +146,7 @@ int	RPN::operate(void)
 {
 	if (_I.size() < 2)  // if only one int
 	{
-		std::cout << "Error\n";
+		std::cout << "Error: Only one number!" << std::endl;
 		return (-1);
 	}
 	int	second_op = (int)this->_I.top();

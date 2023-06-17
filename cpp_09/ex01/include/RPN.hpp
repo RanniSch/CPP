@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:23:39 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/17 00:24:56 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/17 07:10:36 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <iostream>
 # include <stack>   // for stack template
+
+/*
+* Using Stack container in this exercise
+*/
 
 class RPN {
 	    public:
