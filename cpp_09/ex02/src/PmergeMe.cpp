@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 00:30:01 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/17 17:25:43 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/06/17 17:43:30 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,11 @@ bool	isDigit(char *s)
 
     i = 0;
 	if (s[i] && (s[i] == '-' || s[i] == '+'))
-		i++;
+    {
+		if (s[i] == '-')
+            return (false);
+        i++;
+    }
 	while (s[i])
 	{
         if (isdigit(s[i]) == 0)
@@ -182,7 +186,7 @@ bool	inRange(char *s)
 	long	c;
 
 	c = strtol(s, NULL, 10);
-	if (c < INT_MIN || c > INT_MAX || strlen(s) > 11)
+	if (c < 0 || c > INT_MAX || strlen(s) > 11)
 		return (false);
 	return (true);
 }
