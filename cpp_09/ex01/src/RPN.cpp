@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 23:25:18 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/17 07:30:56 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/07/05 20:09:39 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	RPN::inputCheck(const std::string input)
 		}
 		else if (input[i] != ' ') // if no num or no operator; has to be a space
 		{
-			std::cout << "Error: Space between each value needed!" << std::endl;
+			std::cout << "Error: Invalid input." << std::endl;
 			return (-1);
 		}
 	}

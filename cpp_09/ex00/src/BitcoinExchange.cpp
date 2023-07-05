@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:44:19 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/16 23:15:24 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:47:23 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,9 +141,12 @@ void	BitcoinExchange::dataExchangeRate(char* datafileName)
 */
 int	BitcoinExchange::checkDateValidity(std::string date)
 {
-    std::string    month = date.substr(5);
-    std::string    day = month.substr(3);
-    if (date > "2023" || month > "12" || day > "31")
+    std::string		month = date.substr(5, 2);
+    std::string		day = date.substr(8, 2);
+	std::string		dayW = date.substr(9, 1);
+	std::string		minusOne = date.substr(4, 1);
+	std::string		minusTwo = date.substr(7, 1);
+    if (date >= "2024" || date < "2009" || month >= "13" || month < "01" || day > "31" || day < "01" || dayW == "" || minusOne != "-" || minusTwo != "-")
         return (-1);
     return (0);
 }
@@ -205,7 +208,7 @@ void	BitcoinExchange::printBtcValue(char* infileName)
 		int checkDate = checkDateValidity(date);
 		if (checkDate < 0)
 		{
-			std::cout << "\033[31mError: date not valid." << "\033[0m" << std::endl;
+			std::cout << "\033[31mError: date not valid! Only 2009-2023 and YYYY-MM-DD." << "\033[0m" << std::endl;
 			continue;
 		}
 		std::string btcNumber = line.substr(indexNum + delimiter.length());
@@ -216,7 +219,7 @@ void	BitcoinExchange::printBtcValue(char* infileName)
 			std::cout << "\033[31mError: not a positive number." << "\033[0m" << std::endl;
 			continue;
 		}
-		if (static_cast<long>(btcNumberInt) > 1000)
+		if (static_cast<long>(btcNumberInt) > 1000 || static_cast<float>(btcNumberInt) > 1000)
 		{
 			std::cout << "\033[31mError: too large a number." << "\033[0m" << std::endl;
 			continue;
