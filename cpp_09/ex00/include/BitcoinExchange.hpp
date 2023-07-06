@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:41:32 by rschlott          #+#    #+#             */
-/*   Updated: 2023/06/17 07:10:28 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:28:23 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ class	BitcoinExchange {
 		        void							checkOpenFile(std::ifstream &infile);
 		        void							dataExchangeRate(char* datafileName);
                 
-                int								checkDateValidity(std::string date);
+                bool                            checkDeliminator(std::string line);
+                bool							checkDateValidity(std::string date);
+                bool                            checkNumValidity(std::string btcNumber);
 		        float							findBtcRate(std::string date);
 		        void							printBtcValue(char* infileName);
 

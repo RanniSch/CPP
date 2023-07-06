@@ -6,7 +6,7 @@
 /*   By: rschlott <rschlott@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:44:19 by rschlott          #+#    #+#             */
-/*   Updated: 2023/07/05 19:47:23 by rschlott         ###   ########.fr       */
+/*   Updated: 2023/07/06 15:39:05 by rschlott         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,18 +137,54 @@ void	BitcoinExchange::dataExchangeRate(char* datafileName)
 }
 
 /*
-* Function checks for western date standard and returns -1 if date is invalid.
+* Function checks for the existance of a Deliminator and of spaces around it. Plus the minimal total length of a line.
 */
-int	BitcoinExchange::checkDateValidity(std::string date)
+bool	BitcoinExchange::checkDeliminator(std::string line)
 {
-    std::string		month = date.substr(5, 2);
+	if (line.find('|') == std::string::npos || line.find('|') != line.rfind('|') || line.size() < 14 ||
+		line.at(11) != '|' || line.at(10) != ' ' || line.at(12) != ' ')
+		return (false);
+	return (true);
+}
+
+/*
+* Function checks for western date standard and returns false if date is invalid.
+* // First mining of Bitcoins on 3rd of january 2009.
+*/
+bool	BitcoinExchange::checkDateValidity(std::string date)
+{
+    std::string		year = date.substr(0, 4);
+	std::string		month = date.substr(5, 2);
     std::string		day = date.substr(8, 2);
-	std::string		dayW = date.substr(9, 1);
-	std::string		minusOne = date.substr(4, 1);
-	std::string		minusTwo = date.substr(7, 1);
-    if (date >= "2024" || date < "2009" || month >= "13" || month < "01" || day > "31" || day < "01" || dayW == "" || minusOne != "-" || minusTwo != "-")
-        return (-1);
-    return (0);
+
+	if (date.at(4) != '-' || date.at(7) != '-')
+		return (false);
+	if (atoi(year.c_str()) < 2009 || atoi(year.c_str()) > 2023)
+		return (false);
+	if (month[0] < 48 || month[0] > 57 || month[1] < 48 || month[1] > 57)
+		return (false);
+    if (atoi(month.c_str()) > 12 || atoi(month.c_str()) < 1)
+	{
+        return (false);
+	}
+	if (day[0] < 48 || day[0] > 57 || day[1] < 48 || day[1] > 57)
+		return (false);
+	if (atoi(day.c_str()) > 31 && atoi(day.c_str()) < 1)
+		return (false);
+    return (true);
+}
+
+bool	BitcoinExchange::checkNumValidity(std::string btcNumber)
+{
+	int	i = -1;
+	
+	while (btcNumber[++i])
+	{
+		if (btcNumber[i] < 48 || btcNumber[i] > 57)
+			if (btcNumber[i] != '.' && btcNumber[i] != '-')
+				return (false);
+	}
+	return (true);
 }
 
 float	BitcoinExchange::findBtcRate(std::string date)
@@ -197,36 +233,37 @@ void	BitcoinExchange::printBtcValue(char* infileName)
 	std::getline(infile, line); // Skips the first line "date | value"
 	while(getline(infile, line))
 	{
-		const std::string& delimiter = " | ";
-		size_t	indexNum = line.find(delimiter);
-		if (indexNum == std::string::npos)
+		if (!checkDeliminator(line))
 		{
 			std::cout << "\033[31mError: bad input => " << line << "\033[0m" << std::endl;
 			continue;
 		}
-		std::string date = line.substr(0, indexNum);
-		int checkDate = checkDateValidity(date);
-		if (checkDate < 0)
+		std::string date = line.substr(0, 10);
+		if (!checkDateValidity(date))
 		{
-			std::cout << "\033[31mError: date not valid! Only 2009-2023 and YYYY-MM-DD." << "\033[0m" << std::endl;
+			std::cout << "\033[31mError: bad input => " << line << "\033[0m" << std::endl;
 			continue;
 		}
-		std::string btcNumber = line.substr(indexNum + delimiter.length());
-
-		float btcNumberInt = static_cast<float>(atof(btcNumber.c_str()));
-		if (btcNumberInt < 0)
+		std::string btcNumber = line.substr(13);
+		if (!checkNumValidity(btcNumber))
+		{
+			std::cout << "\033[31mError: bad input => " << line << "\033[0m" << std::endl;
+			continue;
+		}
+		float btcNumberF = static_cast<float>(atof(btcNumber.c_str()));
+		if (btcNumberF < 0)
 		{
 			std::cout << "\033[31mError: not a positive number." << "\033[0m" << std::endl;
 			continue;
 		}
-		if (static_cast<long>(btcNumberInt) > 1000 || static_cast<float>(btcNumberInt) > 1000)
+		if (static_cast<long>(btcNumberF) > 1000 || static_cast<float>(btcNumberF) > 1000)
 		{
 			std::cout << "\033[31mError: too large a number." << "\033[0m" << std::endl;
 			continue;
 		}
 		float btcRate = 0;
 		btcRate = findBtcRate(date);
-		std::cout << date << " => " << btcNumberInt << " = " << static_cast<float>(btcNumberInt * btcRate) << std::endl;
+		std::cout << date << " => " << btcNumberF << " = " << static_cast<float>(btcNumberF * btcRate) << std::endl;
 	}
 	infile.close();
 }
