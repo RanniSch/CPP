@@ -11,6 +11,7 @@ The program can be run by the following command
  <br>
 The program displays on the standard output the result of the value multiplied by the exchange rate according to the date indicated in your database. 
 <br>
+
 ![cpp-09-1](https://github.com/RanniSch/CPP/assets/104382315/5e06c06f-f2d3-4850-b5c5-12fb2bf45b8c)
 
 
@@ -22,6 +23,7 @@ The program can be run by the following command
 ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
 ```
 <br>
+
 ![cpp-09-2](https://github.com/RanniSch/CPP/assets/104382315/8311b4c5-6bac-4cf2-9f80-f7e083e42d8d)
 
 
@@ -33,4 +35,5 @@ The program can be run by the following command:
 ./PmergeMe 3 5 9 7 4
 ```
 <br>
+
 ![cpp-09-3](https://github.com/RanniSch/CPP/assets/104382315/a7406317-bcb8-4af3-8a83-0a1c743e49ba)
