@@ -9,7 +9,7 @@ The program can be run by the following command
 ./btc input.csv
 ```
  <br>
-The program displays on the standard output the result of the value multiplied by the exchange rate according to the date indicated in your database. 
+The program displays on the standard output the result of the value multiplied by the exchange rate according to the date indicated in your database. <br>
 <br>
 
 ![cpp-09-1](https://github.com/RanniSch/CPP/assets/104382315/5e06c06f-f2d3-4850-b5c5-12fb2bf45b8c)
