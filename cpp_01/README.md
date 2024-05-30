@@ -23,3 +23,7 @@ Start the program with something like that
 ./files filename s1 s2
 ```
 ![cpp-01-05](https://github.com/RanniSch/CPP/assets/104382315/8630b9b8-0b48-469c-a533-f53df1506190)
+
+## ex05
+
+![cpp-01-06](https://github.com/RanniSch/CPP/assets/104382315/d53907fc-bef8-4ace-8709-dc553ea4f2c6)
