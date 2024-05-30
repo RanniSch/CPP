@@ -3,7 +3,11 @@
 ## ex00
 This program outputs the value of a certain amount of bitcoin on a certain date. <br>
 It uses a database in csv format which represents the price of bitcoin over time. The program takes as input a second database which stores the different prices/dates to be evaluated.  <br>
-The program can be run by the following command ./btc input.csv
+<br>
+The program can be run by the following command 
+´´´
+./btc input.csv
+´´´
  <br>
 The program displays on the standard output the result of the value multiplied by the exchange rate according to the date indicated in your database.
 
