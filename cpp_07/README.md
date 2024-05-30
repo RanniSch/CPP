@@ -14,6 +14,6 @@ This program contains a function template iter that takes 3 parameters: <br>
 ![cpp-07-02](https://github.com/RanniSch/CPP/assets/104382315/9ad46007-6e2e-4088-bbbb-45aaaa72e62d)
 
 ## ex02
-This program has a class template Array that contains elements of type T and that implemented several different behaviors and functions. <br> <br>
+This program has a class template Array that contains elements of type T and that has several different behaviors and functions implemented. <br> <br>
 
 ![cpp-07-03](https://github.com/RanniSch/CPP/assets/104382315/796c1274-d2b5-4b86-a5f0-5dd87322e52c)
