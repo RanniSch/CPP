@@ -6,5 +6,5 @@ The std::cout and the std::endl command are introduced in this program. <br> <br
 
 ## ex01
 This program is an authentic telephone book with the functions ‘ADD’, ‘SEARCH’ and ‘EXIT’. <br>
-Press ‘ADD’ to add a new contact, ‘SEARCH’ to search for contacts and ‘EXIT’ to close the phone book. <br> <br>
+Type ‘ADD’ to add a new contact, ‘SEARCH’ to search for contacts and ‘EXIT’ to close the phone book. <br> <br>
 ![cpp-00-02](https://github.com/RanniSch/CPP/assets/104382315/f5eb7ca7-92a2-4ef5-822b-010133e3beb9)
