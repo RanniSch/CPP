@@ -13,3 +13,8 @@ If there are already N elements stored a new one cannot be added and an exceptio
 If there are no numbers stored, or only one, no span can be found. Thus, an exception gets thrown. <br> <br>
 
 ![cpp-08-02](https://github.com/RanniSch/CPP/assets/104382315/4ba7cc0d-8070-4f52-8e90-8b0b65f66a0e)
+
+## ex02
+This program is about to make the std::stack container iterable. <br> <br>
+
+![cpp-08-03](https://github.com/RanniSch/CPP/assets/104382315/ff3d7cfc-fe0f-45b7-ad9d-d30aa7170f60)
