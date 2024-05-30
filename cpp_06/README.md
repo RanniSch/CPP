@@ -10,3 +10,7 @@ This program takes a string and converts it into different parameters. <br> <br>
 ## ex01
 This program takes a pointer and converts it to the unsigned integer type uintptr_t. It also takes an unsigned integer parameter and converts it to a pointer to Data. <br> <br>
 ![cpp-06-02](https://github.com/RanniSch/CPP/assets/104382315/bab1ce0b-9375-4c75-b403-5c1bd1140cb3)
+
+## ex02
+This program is about implementing a Base class that has a public virtual destructor only. Furthermore there are three empty classes A, B and C, that publicly inherit from Base. <br> <br>
+![cpp-06-03](https://github.com/RanniSch/CPP/assets/104382315/65362c27-a750-4751-9b30-0a49a2693dfc)
